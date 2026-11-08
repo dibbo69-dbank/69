@@ -1,0 +1,1053 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>dbank</title><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ff4d5a%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238f0f14%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2212%22%20fill%3D%22%230e0607%22/%3E%3Cg%20transform%3D%22translate%286%206%29%20scale%28.75%29%22%3E%3Cpath%20d%3D%22M24%202l22%2022-22%2022L2%2024z%22%20fill%3D%22url%28%23rg%29%22/%3E%3Cpath%20d%3D%22M24%202l22%2022-22%2022%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-opacity%3D%22.35%22%20stroke-width%3D%221.2%22/%3E%3Cpath%20d%3D%22M17%2016v16M17%2016h14M17%2024h10M17%2032h14%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/g%3E%3C/svg%3E"><meta name="theme-color" content="#ffffff"><script>(function(){try{var t=localStorage.getItem("dp_theme");if(!t)t="light";if(t==="light")document.documentElement.classList.add("light")}catch(e){}})()</script><meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{min-height:100vh;display:grid;place-items:center;background:radial-gradient(900px 520px at 12% -10%,rgba(185,28,28,.45),transparent 60%),radial-gradient(700px 500px at 100% 100%,rgba(127,29,29,.35),transparent 60%),#0e0607;color:#fff;font-family:Inter,system-ui,sans-serif;padding:20px;overflow-x:hidden}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.5;animation:fl 12s ease-in-out infinite;pointer-events:none}
+.o1{width:320px;height:320px;background:#b91c1c;top:-80px;left:-60px}.o2{width:280px;height:280px;background:#7f1d1d;bottom:-70px;right:-50px;animation-delay:-5s}
+@keyframes fl{50%{transform:translate(40px,-40px) scale(1.15)}}
+.card{position:relative;width:100%;max-width:420px;padding:28px 22px;border-radius:28px;background:rgba(40,8,10,.45);border:1px solid rgba(253,164,175,.2);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 30px 80px rgba(0,0,0,.45);animation:rise .8s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(30px) scale(.96)}}
+.logo{width:80px;height:80px;display:block;margin:0 auto 14px;filter:drop-shadow(0 10px 24px rgba(220,38,38,.55));animation:pop 1s .2s both cubic-bezier(.3,1.5,.5,1)}
+@keyframes pop{from{opacity:0;transform:scale(.4) rotate(-12deg)}}
+h1{font-size:21px;text-align:center;margin-bottom:6px}h2{font-size:15px;margin:18px 0 8px}
+p.sub{font-size:14px;color:#fca5a5;text-align:center;margin-bottom:18px;line-height:1.5}
+.v{display:none}.v.on{display:block;animation:in .45s both}@keyframes in{from{opacity:0;transform:translateX(22px)}}
+.f{display:block;width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);border-radius:14px;color:#fff;font-size:16px;padding:14px 16px;margin-bottom:10px;outline:0;transition:.25s}
+.f:focus{border-color:#f87171;box-shadow:0 0 0 4px rgba(248,113,113,.2)}.f::placeholder{color:rgba(255,255,255,.35)}
+.btn{width:100%;margin-top:8px;padding:14px;border:0;border-radius:14px;font-size:15px;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(135deg,#b91c1c,#ef4444);box-shadow:0 10px 26px rgba(220,38,38,.45);transition:.2s;position:relative;overflow:hidden}
+.btn:active{transform:scale(.97)}.btn:disabled{opacity:.6}.btn.load::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:sh 1s infinite}
+@keyframes sh{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.g{background:rgba(255,255,255,.1);box-shadow:none;border:1px solid rgba(255,255,255,.18)}.d{background:rgba(244,63,94,.25);box-shadow:none}
+.sm{width:auto;padding:8px 12px;font-size:13px;margin:0}.row{display:flex;gap:8px;margin-top:8px}.row .btn{margin-top:0}
+.tabs,.pills{display:flex;background:rgba(255,255,255,.08);border-radius:14px;padding:4px;margin-bottom:16px}
+.tabs button,.pills button{flex:1;border:0;background:none;color:#fca5a5;padding:10px;border-radius:11px;font-weight:600;cursor:pointer;transition:.25s}
+.tabs .on,.pills .on{background:linear-gradient(135deg,#b91c1c,#ef4444);color:#fff}
+.lk{background:none;border:0;color:#fca5a5;font-size:13px;margin:14px auto 0;display:block;cursor:pointer}
+.err{font-size:13px;text-align:center;margin-top:10px;min-height:18px;color:#fda4af}.err.ok{color:#6ee7b7}
+.mc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:14px;margin-bottom:12px;animation:in .4s both}
+.mc b{font-size:16px}.mc .n{font-size:20px;font-weight:700;letter-spacing:.5px;margin:6px 0}.mc small{color:#fca5a5;display:block;margin-bottom:8px}.off{opacity:.5}
+.mc img{width:100%;border-radius:12px;background:#fff;margin:6px 0}
+.otpf{text-align:center;font-size:28px;font-weight:700;letter-spacing:12px;padding:16px 8px 16px 20px}.otpf::placeholder{letter-spacing:12px}
+.hi{text-align:center;color:#fca5a5;font-size:14px;margin-bottom:14px}
+
+.fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.fx::before{content:"";position:absolute;inset:-50%;background:repeating-linear-gradient(115deg,transparent 0 60px,rgba(255,77,90,.08) 60px 62px);animation:mv 16s linear infinite}
+@keyframes mv{to{transform:translateX(68.4px)}}
+.fx::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(239,68,68,.3),transparent 46%)}
+.fx i{position:absolute;left:50%;top:42%;border-radius:50%;border:1.5px solid rgba(255,77,90,.14);transform:translate(-50%,-50%);animation:rg 14s linear infinite;z-index:1}
+.fx i:nth-child(1){width:340px;height:340px;border-top-color:#ff4d5a}
+.fx i:nth-child(2){width:540px;height:540px;border-right-color:#ef4444;animation-duration:22s;animation-direction:reverse}
+.fx i:nth-child(3){width:760px;height:760px;border-bottom-color:#ef4444;animation-duration:32s}
+@keyframes rg{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.card{z-index:2}
+.card.hero,.card.home{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0 4px;max-width:430px}
+.card.home{padding:0}.card.home>.logo{display:none}
+body.h{padding:0;place-items:start center}
+.card.hero .logo{width:92px;height:92px}
+.wm{text-align:center;font-size:46px;letter-spacing:-1px;margin:-4px 0 26px;font-weight:700}.wm span{font-weight:200}
+#v-auth .tabs{display:none}#v-auth h1{font-size:19px;font-weight:600;color:#fecdd3;margin-bottom:16px}
+.fi{position:relative}.fi svg{position:absolute;left:15px;top:15px;width:20px;height:20px;stroke:#fecdd3;fill:none;stroke-width:1.8;stroke-linecap:round}.fi .f{padding-left:48px}
+.f{background:rgba(30,8,10,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lk b{color:#ff4d5a}.lk{font-size:14px}
+#v-home.on{display:flex;flex-direction:column;min-height:100vh}
+.hh{padding:30px 22px 14px}.hh small{color:#fca5a5;font-size:14px}.hh h1{text-align:left;font-size:27px;margin:2px 0 0}
+.tab{display:none;padding:6px 18px 18px}.tab.on{display:block;animation:in .4s both}
+.ac{background:linear-gradient(135deg,rgba(185,28,28,.6),rgba(40,6,8,.75));border:1px solid rgba(253,164,175,.28);border-radius:22px;padding:18px;margin-bottom:16px;cursor:pointer;box-shadow:0 14px 40px rgba(30,5,5,.6)}
+.ac small{color:#fecdd3}.bal{font-size:27px;font-weight:700;letter-spacing:1px;margin:8px 0}
+.qb{background:rgba(20,6,8,.72);border:1px solid rgba(253,164,175,.16);border-radius:22px;padding:6px 14px 14px;margin-bottom:16px}
+.gr3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.gr3 button{background:none;border:0;color:#fff;font-size:13px;cursor:pointer;padding:8px 2px}
+.gr3 span{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 8px;border-radius:17px;background:rgba(255,77,90,.12);border:1px solid rgba(255,77,90,.32);font-size:22px;color:#fda4af;transition:.2s}
+.gr3 button:active span{transform:scale(.9)}
+.promo{border-radius:20px;padding:18px;background:linear-gradient(120deg,#7f1d1d,#7f1d1d);border:1px solid rgba(253,164,175,.25)}.promo small{display:block;color:#dbeafe;margin-top:4px;line-height:1.5}
+.bn{margin-top:auto;display:flex;background:rgba(14,5,6,.92);border-top:1px solid rgba(253,164,175,.18);border-radius:22px 22px 0 0;padding:8px 6px 12px;position:sticky;bottom:0;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.bn button{flex:1;background:none;border:0;color:#a8828a;padding:8px 2px;font-size:12px;cursor:pointer;transition:.2s}.bn button span{display:block;font-size:21px;margin-bottom:2px}.bn .on{color:#ff4d5a}
+select.f option{color:#000}
+.btn.sm,.lk{min-height:44px}
+.fi svg{pointer-events:none}
+@media (max-width:480px),(pointer:coarse){.fx i:nth-child(3){display:none}.card{backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.orb{display:none}}
+
+body{background:radial-gradient(900px 520px at 12% -10%,rgba(185,28,28,.5),transparent 60%),radial-gradient(700px 500px at 100% 100%,rgba(127,29,29,.4),transparent 60%),#0e0607}
+.fx::after{animation:pu 5s ease-in-out infinite}@keyframes pu{50%{opacity:.55}}
+.fx b{position:absolute;left:0;height:2px;width:110px;border-radius:2px;background:linear-gradient(90deg,transparent,#ff4d5a,transparent);opacity:0;animation:tr 5s linear infinite;z-index:1}
+@keyframes tr{0%{transform:translateX(-130px);opacity:0}10%{opacity:.9}90%{opacity:.6}100%{transform:translateX(110vw);opacity:0}}
+.btn{background:linear-gradient(135deg,#e11d2e,#b91c1c);border-radius:16px;box-shadow:0 10px 28px rgba(225,29,46,.4)}
+.btn.g,.btn.d{box-shadow:none}.btn.g{background:rgba(255,255,255,.1)}.btn.d{background:rgba(244,63,94,.25)}
+.f{border-radius:18px}.fi .f{padding:18px 16px 18px 52px;background:rgba(20,6,8,.62);border:1px solid rgba(255,255,255,.18)}.fi svg{top:19px}
+.wm{font-size:46px;letter-spacing:-1.5px;text-shadow:0 0 30px rgba(255,77,90,.55);animation:in .8s both}
+#v-auth.on{display:flex;flex-direction:column;min-height:calc(100vh - 40px)}#v-auth .wm{margin-top:12vh}#v-auth #gor,#v-auth #gol{margin-top:auto}
+#fp{text-decoration:underline;color:#fff;font-size:15px}.lk b{color:#ff4d5a}
+.err{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);z-index:9;max-width:90%;min-height:0;padding:10px 16px;border-radius:14px;background:rgba(20,6,8,.94);border:1px solid rgba(248,113,113,.35)}.err:empty{display:none}.err.ok{border-color:rgba(110,231,183,.5)}
+.hd{position:relative;overflow:hidden;padding:calc(14px + env(safe-area-inset-top,0px)) 22px 92px;background:linear-gradient(180deg,#6b0d10,#b3141a 50%,#e11d1d)}
+.hd::after{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 30% 20%,rgba(255,130,130,.35),transparent 40%);animation:fl 10s ease-in-out infinite;pointer-events:none}
+.hd>*{position:relative;z-index:1}.tb{display:flex;align-items:center;justify-content:space-between}.tb .lg{width:46px;height:46px}.ti{display:flex}
+.ti button{background:none;border:0;color:#fff;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+.ti svg,.bn svg,.gr3 svg{fill:none;stroke-linecap:round;stroke-linejoin:round}.ti svg{width:26px;height:26px;stroke:#fff;stroke-width:1.8}
+.hd small{display:block;margin-top:24px;font-size:20px;color:#fff}.hd h1{text-align:left;font-size:34px;margin:2px 0 14px}.va{text-align:right}.vb{background:none;border:0;color:#fff;font-weight:600;font-size:16px;cursor:pointer;min-height:44px}
+.cv{height:30px;margin-top:-30px;background:#0e0607;border-radius:28px 28px 0 0;position:relative;z-index:1}
+#t-home{margin-top:-74px;position:relative;z-index:2}.tab{padding-top:16px}#t-home{padding-top:0}
+.tab.on>*{animation:in .5s both}.tab.on>*:nth-child(2){animation-delay:.08s}.tab.on>*:nth-child(3){animation-delay:.16s}
+.cards{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px 16px;padding:0 18px 4px;scrollbar-width:none}.cards::-webkit-scrollbar{display:none}
+.ac{flex:0 0 88%;scroll-snap-align:start;margin:0;padding:20px;min-height:150px;background:linear-gradient(160deg,#4d1016,#1c0a0d 75%);border:1px solid rgba(253,164,175,.2);transition:.2s}.ac:active{transform:scale(.98)}
+.at2{font-size:17px;font-weight:600}.bal{font-size:30px}.ar{display:flex;gap:12px;align-items:center;margin-top:14px}.ar svg{width:42px;height:42px}.ar b{display:block;font-size:14px}.ar small{color:#fca5a5}
+.qb{background:#120708;border:0;border-radius:24px;padding:4px 18px 12px}
+.qt{display:flex;position:relative;border-bottom:2px solid rgba(255,255,255,.2);margin-bottom:12px}.qt::after{content:"";position:absolute;left:0;bottom:-2px;width:50%;height:3px;background:#ef4444;transform:translateX(var(--x,0));transition:.3s}
+.qt button{flex:1;background:none;border:0;color:#d4c4c6;padding:16px 4px;font-size:16px;font-weight:600;cursor:pointer}.qt .on{color:#ff4d5a}
+.gr3 button{font-size:14px;line-height:1.3;padding:10px 2px 14px}.gr3 span{width:auto;height:auto;background:none;border:0;margin:0 auto 8px}.gr3 svg{width:40px;height:40px;stroke:#ef4444;stroke-width:1.6}.gr3 button:active svg{transform:scale(.88)}
+.fv{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;padding:16px 2px;font-size:15px;cursor:pointer}.fv small{color:#fca5a5}
+.promo{position:relative;overflow:hidden;min-height:96px;background:linear-gradient(120deg,#4d1016,#8f1419)}.promo::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:0;background:#ef4444}.promo.s::after{animation:bar 4.5s linear}.promo.s b,.promo.s small{animation:in .5s both}@keyframes bar{to{width:100%}}
+.bn{background:rgba(14,5,6,.94)}.bn button{font-size:11.5px;min-height:56px}.bn svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.7}.bn .on{color:#ff4d5a}.bn .on svg{filter:drop-shadow(0 0 6px rgba(255,77,90,.6))}
+
+/* size fixes */
+body{min-height:100vh;min-height:100dvh}
+#v-home.on{min-height:100vh;min-height:100dvh;background:#0e0607}
+.card.home{box-shadow:0 0 0 1px rgba(253,164,175,.08),0 30px 80px rgba(0,0,0,.6);min-height:100vh;min-height:100dvh}
+.hd{padding-bottom:78px}.hd small{margin-top:14px;font-size:18px}.hd h1{font-size:30px;margin:0 0 6px}.vb{min-height:36px}
+.cv{height:26px;margin-top:-26px}#t-home{margin-top:-62px}
+.ac{min-height:124px;padding:16px 18px}.bal{font-size:26px;margin:6px 0}.ar{margin-top:8px}.ar svg{width:34px;height:34px}
+.qt button{padding:12px 4px}.gr3 button{padding:6px 2px 8px;font-size:13px}.gr3 svg{width:34px;height:34px}.gr3 span{margin-bottom:4px}
+.qb,.cards{margin-bottom:12px}.promo{min-height:84px;padding:14px 16px}
+.tab{padding-bottom:20px}.bn button{min-height:52px}
+@media (max-width:360px){.hd h1{font-size:26px}.bal{font-size:22px}.gr3 button{font-size:12px}}
+
+/* overflow fix: never wider than the screen */
+html,body{max-width:100%;overflow-x:hidden}
+body{grid-template-columns:minmax(0,1fr)}
+.card,.v,.tab,.hd,.qb,.promo{min-width:0;max-width:100%}
+.card.home,.card.hero{max-width:min(430px,100%)}
+.cards{min-width:0;contain:inline-size;scroll-padding:0 18px}
+.hd h1{overflow-wrap:anywhere;line-height:1.15}
+.ls{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:#fecaca;padding:4px 0}.ls b{color:#fff}.ls.t{border-top:1px dashed rgba(255,255,255,.2);margin-top:4px;font-size:15px}
+.ls.t{padding-top:8px}.note{font-size:12px;color:#fca5a5;line-height:1.5;margin:4px 2px 10px}.bdg{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(255,255,255,.12);margin-left:6px}
+.bdg.p{background:rgba(251,191,36,.2);color:#fde68a}.bdg.a{background:rgba(16,185,129,.2);color:#6ee7b7}.bdg.r{background:rgba(244,63,94,.25);color:#fda4af}.bdg.d{background:rgba(96,165,250,.2);color:#bfdbfe}
+.bn button{font-size:11px}
+.bk{border-radius:22px;padding:20px;margin:0 0 14px;background:linear-gradient(135deg,#4d1016,#8f1419);border:1px solid rgba(253,164,175,.25);color:#fff}
+.bk .bt{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#fecdd3}
+.bk #eye{background:none;border:0;cursor:pointer;width:40px;height:40px;display:grid;place-items:center;color:#fff}
+.bk #eye svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bk .bamt{font-size:34px;font-weight:700;margin:4px 0 16px;letter-spacing:.5px}
+.bk .bs{display:flex;gap:12px;border-top:1px solid rgba(255,255,255,.18);padding-top:12px}
+.bk .bs>div{flex:1;min-width:0}.bk .bs small{display:block;color:#fecdd3;font-size:12px;margin-bottom:2px}.bk .bs b{font-size:16px}
+
+/* ===== Light theme ===== */
+.ti #thm{font-size:21px}
+
+.fab{position:fixed;right:16px;bottom:92px;z-index:8;width:54px;height:54px;border-radius:50%;border:0;font-size:24px;color:#fff;background:linear-gradient(135deg,#e11d2e,#b91c1c);box-shadow:0 8px 22px rgba(225,29,46,.5);cursor:pointer}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:430px;margin:auto;height:72vh;background:#1a0a0c;border:1px solid rgba(253,164,175,.2);border-radius:22px 22px 0 0;z-index:12;display:none;flex-direction:column;padding:14px}.sheet.on{display:flex}
+.msgs{flex:1;overflow:auto}.m{max-width:88%;padding:9px 12px;border-radius:14px;margin:6px 0;font-size:14px;line-height:1.45;white-space:pre-wrap}.m.b{background:rgba(255,255,255,.1)}.m.u{background:#b91c1c;margin-left:auto;color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}.chips button{border:1px solid rgba(253,164,175,.35);background:none;color:inherit;border-radius:99px;padding:6px 11px;font-size:12px;cursor:pointer}
+.wq{display:flex;gap:8px;margin:10px 0}.wq .btn{flex:1}#lm,#ln,#lbk{display:none!important}.mfi img{max-width:220px;border-radius:12px;background:#fff;padding:6px;display:block;margin:8px 0}
+
+/* ===== v2 premium + perf ===== */
+.fx::before,.fx b{display:none}.fx i,.fx::after,.hd::after{animation:none!important}
+:root{--e:cubic-bezier(.2,.8,.2,1)}
+@keyframes tin{from{opacity:0;transform:translateY(14px)}}
+@keyframes up{from{opacity:0;transform:translateY(24px) scale(.97)}}
+@keyframes shn{0%{transform:translateX(-120%)}60%,100%{transform:translateX(120%)}}
+.tab.on{animation:tin .38s var(--e) both}.tab.on>*{animation:tin .5s var(--e) both}
+.tab.on>*:nth-child(2){animation-delay:.05s}.tab.on>*:nth-child(3){animation-delay:.1s}.tab.on>*:nth-child(4){animation-delay:.15s}.tab.on>*:nth-child(5){animation-delay:.2s}
+.mc,.qb{transition:transform .2s var(--e),box-shadow .2s}.mc:active{transform:scale(.99)}
+.btn{background:linear-gradient(135deg,#f0283a,#b01220);box-shadow:0 10px 26px rgba(225,29,46,.38),inset 0 1px 0 rgba(255,255,255,.28);letter-spacing:.2px;transition:transform .15s var(--e),filter .2s}
+.btn:active{transform:scale(.96);filter:brightness(.92)}.btn.g,.btn.d{box-shadow:none}
+.f{transition:border-color .25s,box-shadow .25s,background .25s}
+.err{animation:up .35s var(--e) both}
+h2{letter-spacing:.2px;font-weight:700}
+.sl{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:2px 18px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}.sl::-webkit-scrollbar{display:none}
+.sc{flex:0 0 88%;scroll-snap-align:center;min-height:178px;border-radius:26px;padding:20px;color:#fff;position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 18px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .25s var(--e)}
+.sc:active{transform:scale(.98)}.sc>*{position:relative;z-index:1}
+.sc::before{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.1)}
+.sc::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);animation:shn 6s ease-in-out infinite;pointer-events:none}
+.sc.w{background:linear-gradient(145deg,#f0283a,#8a0f18 80%)}.sc.l{background:linear-gradient(145deg,#3a1418,#14090b 85%);border:1px solid rgba(253,164,175,.2)}.sc.u{background:linear-gradient(145deg,#0f766e,#052e2b 85%);border:1px solid rgba(94,234,212,.25)}.sc.cc{background:linear-gradient(145deg,#2b2b36,#0c0c12 85%);border:1px solid rgba(250,204,21,.25)}
+.sc .bt{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:rgba(255,255,255,.85);font-weight:600}
+.sc small{color:rgba(255,255,255,.68);font-size:12px;letter-spacing:.3px;display:block}.sc .big{font-size:32px;font-weight:700;margin:8px 0 6px;font-variant-numeric:tabular-nums;letter-spacing:.3px}
+.sc .bs{display:flex;gap:12px;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:auto}.sc .bs>div{flex:1;min-width:0}.sc .bs b{font-size:15px}
+.sc .tag{font-size:11px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.16)}
+#eye{background:none;border:0;cursor:pointer;width:38px;height:38px;display:grid;place-items:center;margin:-8px -8px 0 0}#eye svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ccr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}.ccr span{color:rgba(255,255,255,.7);letter-spacing:1px}
+.cta{margin-top:auto;font-weight:700;color:#facc15}
+.dots{display:flex;gap:6px;justify-content:center;margin:2px 0 14px}.dots i{width:6px;height:6px;border-radius:9px;background:rgba(255,255,255,.25);transition:.3s var(--e)}.dots i.on{width:20px;background:#ef4444}
+.wq{display:grid!important;grid-template-columns:repeat(4,1fr);gap:10px!important}
+.wq .btn.sm{white-space:normal;line-height:1.3;font-size:12px;padding:12px 4px;min-height:60px;border-radius:18px;background:rgba(255,77,90,.12);border:1px solid rgba(255,77,90,.28);color:inherit;box-shadow:none}
+.wq .btn.sm:first-child{background:linear-gradient(135deg,#f0283a,#b01220);color:#fff;border:0}
+.bn{margin:0 10px 10px;bottom:8px;border:1px solid rgba(253,164,175,.18);border-radius:26px;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.bn button{position:relative;transition:color .2s}.bn button svg{transition:transform .3s var(--e)}.bn .on svg{transform:translateY(-3px) scale(1.12)}
+.bn .on::after{content:"";position:absolute;left:50%;bottom:4px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#ef4444}
+.vc{position:relative;aspect-ratio:1.586;border-radius:24px;padding:20px;color:#fff;margin-bottom:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#f0283a,#5b0b10 75%);box-shadow:0 22px 44px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25);animation:up .6s var(--e) both;transition:filter .3s,opacity .3s}
+.vc.USD{background:linear-gradient(135deg,#374151,#0b0f19 75%)}.vc.fz{filter:grayscale(1);opacity:.65}.vc.ph{opacity:.92}
+.vc::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.08)}
+.vc::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.14) 50%,transparent 60%);animation:shn 5s ease-in-out infinite;pointer-events:none}
+.vc>*{position:relative;z-index:1}.vt{display:flex;justify-content:space-between;align-items:center;font-size:18px}.vt span{font-weight:200}.vt i{font-style:normal;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.2)}
+.chip{width:44px;height:33px;border-radius:7px;background:linear-gradient(135deg,#f8e2a0,#b8862b)}
+.vn{font-size:20px;letter-spacing:2px;font-family:ui-monospace,Menlo,monospace;white-space:nowrap}
+.vf{display:flex;justify-content:space-between;gap:8px}.vf small{display:block;font-size:9px;opacity:.7;letter-spacing:1px}.vf b{font-size:13px;white-space:nowrap}
+.mi{display:flex;align-items:center;gap:12px;width:100%;margin-top:10px;text-align:left}
+@media (max-width:360px){.vn{font-size:17px}.sc .big{font-size:27px}}
+.pbar{height:6px;border-radius:9px;background:rgba(255,255,255,.12);margin:8px 0;overflow:hidden}.pbar i{display:block;height:100%;background:linear-gradient(90deg,#f0283a,#fb7185);border-radius:9px;transition:width .6s}#qp1 button{font-size:11px;padding:10px 2px}.bdg{font-size:11px;padding:2px 9px;border-radius:99px;margin-left:6px;background:rgba(34,197,94,.18);color:#4ade80}.bdg.m{background:rgba(148,163,184,.2);color:#cbd5e1}.bdg.o{background:rgba(250,204,21,.2);color:#facc15}
+
+/* ===== dbank classic: crimson + white ===== */
+
+/* ===== v3: Deep White + Deep Dark (red vibe) ===== */
+:root{--bg:#050304;--s1:#0c0708;--s2:#140a0c;--bd:rgba(255,64,80,.16);--tx:#f8f3f3;--mut:#a98d92;--ac:#ff2d3f;--ac2:#b8101e;--glow:rgba(255,45,63,.38);--fld:#0a0506;--sh:0 18px 50px rgba(0,0,0,.65);--thm:#050304}
+html.light{--bg:#ffffff;--s1:#ffffff;--s2:#f5f5f7;--bd:#ebebef;--tx:#0a0a0f;--mut:#6a6a76;--ac:#e11d2e;--ac2:#a30f1c;--glow:rgba(225,29,46,.22);--fld:#f6f6f8;--sh:0 14px 40px rgba(16,16,32,.08);--thm:#ffffff}
+html body{background:radial-gradient(760px 420px at 50% -8%,var(--glow),transparent 62%),radial-gradient(520px 380px at 105% 105%,rgba(225,29,46,.14),transparent 60%),var(--bg);color:var(--tx)}
+html .fx{opacity:1}html .fx i{border-color:rgba(255,45,63,.10)}html .fx::after{background:radial-gradient(circle at 50% 38%,rgba(255,45,63,.22),transparent 46%)}
+html.light .fx{opacity:0}
+html .card{background:var(--s1);border-color:var(--bd);box-shadow:var(--sh)}
+html .card.hero,html .card.home{background:none;border:0}
+html #v-home.on,html .cv{background:var(--bg)}
+html .card.home{box-shadow:0 0 0 1px var(--bd),var(--sh)}
+/* text */
+html p.sub,html .lk,html .hi,html .mc small,html .note,html .fv small,html .tabs button,html .pills button,html #v-auth h1,html .ls,html .hh small{color:var(--mut)}
+html .ls b,html .gr3 button,html .fv,html .wm,html .sheet,html h1,html h2{color:var(--tx)}
+html .lk b,html .qt .on,html .bn .on,html #fp{color:var(--ac)}
+html .wm{text-shadow:0 0 34px var(--glow)}html.light .wm{text-shadow:none}
+html .wm span{color:var(--ac)}
+/* fields */
+html .f,html .fi .f{background:var(--fld);border:1.5px solid var(--bd);color:var(--tx);backdrop-filter:none;-webkit-backdrop-filter:none}
+html.light .f,html.light .fi .f{border-color:#e4e4ea}
+html .f::placeholder{color:var(--mut);opacity:.7}
+html .f:focus{border-color:var(--ac);box-shadow:0 0 0 4px var(--glow);background:var(--s1)}
+html .fi svg{stroke:var(--mut)}
+/* buttons */
+html .btn{background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 10px 26px var(--glow),inset 0 1px 0 rgba(255,255,255,.25);color:#fff}
+html .btn.g{background:rgba(255,45,63,.08);border:1px solid var(--bd);color:var(--tx);box-shadow:none}
+html.light .btn.g{background:#fff;border:1px solid #e4e4ea;color:var(--ac2)}
+html .btn.d{background:rgba(255,45,63,.16);color:#ff8791;box-shadow:none}html.light .btn.d{background:rgba(225,29,46,.08);color:#be123c}
+html .tabs,html .pills{background:var(--s2)}html .tabs .on,html .pills .on{color:#fff;background:linear-gradient(135deg,var(--ac),var(--ac2))}
+/* header */
+html .hd{background:linear-gradient(160deg,#1a0508 0%,#3a0910 55%,#7a0e18 100%)}
+html .hd::after{background:radial-gradient(circle at 80% 10%,rgba(255,60,75,.38),transparent 45%)}
+html.light .hd{background:var(--bg);box-shadow:inset 0 -1px 0 var(--bd)}
+html.light .hd::after{background:radial-gradient(circle at 85% 0%,rgba(225,29,46,.14),transparent 50%)}
+html.light .hd small,html.light .hd h1,html.light .vb,html.light .va{color:var(--tx)}
+html.light .ti svg{stroke:var(--tx)}html.light .ti button{color:var(--tx)}
+html.light #eye svg{stroke:#fff}
+/* surfaces */
+html .mc,html .qb{background:var(--s1);border:1px solid var(--bd);box-shadow:var(--sh)}
+html.light .mc,html.light .qb{box-shadow:0 8px 26px rgba(16,16,32,.06)}
+html .gr3 svg{stroke:var(--ac)}
+html .qt{border-bottom-color:var(--bd)}html .qt button{color:var(--mut)}
+html .fv{border-bottom-color:var(--bd)}html .ls.t{border-top-color:var(--bd)}
+html .ccr{border-bottom-color:var(--bd)}
+html .pbar{background:var(--s2)}
+html .dots i{background:var(--s2);border:1px solid var(--bd)}html .dots i.on{background:var(--ac);border-color:var(--ac)}
+/* hero cards */
+html .sc.w{background:linear-gradient(145deg,#ff2d3f,#7d0a14 82%)}
+html .sc.l{background:linear-gradient(145deg,#2a0c10,#060304 88%);border:1px solid rgba(255,64,80,.28)}
+html .sc.cc{background:linear-gradient(145deg,#1b1b22,#050507 88%)}
+html .sc,html .vc{box-shadow:0 18px 44px var(--glow),inset 0 1px 0 rgba(255,255,255,.18)}
+html.light .sc,html.light .vc{box-shadow:0 18px 40px rgba(163,15,28,.25),inset 0 1px 0 rgba(255,255,255,.18)}
+html .promo,html .bk{background:linear-gradient(120deg,#3a0910,#a30f1c);border-color:var(--bd);color:#fff}
+/* quick action tiles */
+html .wq .btn.sm{background:rgba(255,45,63,.10);border:1px solid var(--bd);color:var(--tx);box-shadow:none}
+html .wq .btn.sm:first-child{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border:0;box-shadow:0 8px 20px var(--glow)}
+html.light .wq .btn.sm:not(:first-child){background:#fff;border:1px solid #e4e4ea;color:var(--tx);box-shadow:0 4px 12px rgba(16,16,32,.05)}
+/* bottom nav */
+html .bn{background:rgba(8,4,5,.92);border:1px solid var(--bd);box-shadow:0 14px 34px rgba(0,0,0,.6)}
+html.light .bn{background:rgba(255,255,255,.96);box-shadow:0 14px 34px rgba(16,16,32,.14)}
+html .bn button{color:var(--mut)}html .bn .on{color:var(--ac)}html .bn .on::after{background:var(--ac)}
+html .bn .on svg{filter:drop-shadow(0 0 7px var(--glow))}
+/* chat / sheet / toast / badges / fab */
+html .sheet{background:var(--s1);color:var(--tx);border-color:var(--bd)}
+html .m.b{background:var(--s2)}html .m.u{background:linear-gradient(135deg,var(--ac),var(--ac2))}
+html .chips button{border-color:var(--bd)}
+html .err{background:var(--s1);color:#ff8791;border:1px solid var(--bd);box-shadow:var(--sh)}html.light .err{color:#be123c}
+html .err.ok{color:#34d399}html.light .err.ok{color:#047857}
+html .bdg{background:var(--s2)}
+html.light .bdg.p{background:rgba(251,191,36,.22);color:#92400e}html.light .bdg.a{background:rgba(16,185,129,.16);color:#047857}html.light .bdg.r{background:rgba(244,63,94,.14);color:#be123c}html.light .bdg.d{background:rgba(59,130,246,.14);color:#1d4ed8}
+html .fab{background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 8px 24px var(--glow)}
+html select.f option{color:#000}
+:root{--cardimg:url(data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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)}
+html .fc{perspective:1100px;margin:4px 0 14px;cursor:pointer;-webkit-user-select:none;user-select:none}
+html .fci{position:relative;aspect-ratio:1011/638;transition:transform .75s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+html .fc.on .fci{transform:rotateY(180deg)}
+html .ff,html .fb{position:absolute;inset:0;border-radius:20px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 18px 40px rgba(244,66,54,.38)}
+html .ff{background:var(--cardimg) center/100% 100% no-repeat,#f44236}
+html .fb{transform:rotateY(180deg);background:linear-gradient(135deg,#f44236,#c42c22);color:#fff;display:flex;flex-direction:column;padding:0 16px 14px}
+html .fb .fs{height:15%;background:#0d0d10;margin:7% -16px 0}
+html .fb .fn{font-family:ui-monospace,Menlo,monospace;font-size:clamp(15px,5.2vw,21px);letter-spacing:2px;margin-top:6%;white-space:nowrap;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+html .fb .fr{display:flex;justify-content:space-between;gap:8px;margin-top:auto}
+html .fb small{display:block;font-size:9px;letter-spacing:1px;opacity:.8}html .fb b{font-size:13px;white-space:nowrap;color:#fff}
+html .fb .fbal{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.35);font-size:13px;font-weight:700}
+html .fh{position:absolute;left:14px;bottom:12px;font-size:11px;color:#fff;opacity:.85;letter-spacing:.3px}
+html .fzt{position:absolute;right:14px;top:14px;font-style:normal;font-size:11px;font-weight:700;color:#fff;background:rgba(0,0,0,.45);padding:3px 10px;border-radius:99px}
+html .fc.fz .ff,html .fc.fz .fb{filter:grayscale(1) brightness(.85)}
+html .sc.cc{background:linear-gradient(145deg,#f44236,#a8231b 90%);border:0}
+html .lgt{font-size:28px;font-weight:800;letter-spacing:-1px;text-transform:lowercase;color:#fff;line-height:46px}
+html.light .lgt{color:var(--tx)}html.light .lgt::first-letter{color:var(--ac)}
+html .wm{text-transform:lowercase}html .wm span{font-weight:800}
+</style></head><body><div class="fx"><i></i><i></i><i></i><b style="top:16%"></b><b style="top:34%;animation-delay:-1.6s"></b><b style="top:58%;animation-delay:-3s"></b><b style="top:76%;animation-delay:-4.2s"></b></div>
+<main class="card hero" id="card"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4d5a"/><stop offset="1" stop-color="#8f0f14"/></linearGradient><symbol id="lgo" viewBox="0 0 48 48"><path d="M24 2l22 22-22 22L2 24z" fill="url(#rg)"/><path d="M24 2l22 22-22 22" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.2"/><path d="M17 16v16M17 16h14M17 24h10M17 32h14" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+
+<section class="v on" id="v-auth"><div class="wm"><span>d</span>bank</div><h1 id="at">Welcome back</h1>
+<div class="tabs"><button id="tl" class="on">Login</button><button id="tr">Register</button></div>
+<div id="fl"><div class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><input class="f" id="li" placeholder="Phone or email" autocomplete="username"></div><div class="fi"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><input class="f" id="lp" type="password" placeholder="Password" autocomplete="current-password"></div><button class="btn" id="bl">Login</button><button class="lk" id="fp">Forgot password?</button></div>
+<div id="fr" style="display:none"><input class="f" id="rn" placeholder="Full name" maxlength="40"><input class="f" id="rp" type="tel" placeholder="Phone (01XXXXXXXXX)" maxlength="11"><input class="f" id="re" type="email" placeholder="Email"><input class="f" id="rw" type="password" placeholder="Password (min 6)" autocomplete="new-password"><button class="btn" id="br">Create account</button></div>
+<button class="lk" id="gor">New user? <b>Register Now</b></button><button class="lk" id="gol" style="display:none">Have an account? <b>Login</b></button>
+<button class="lk" id="kql" style="display:none">🔒 Login with PIN / biometric</button><button class="lk" id="thm3" data-thm="t"></button><button class="lk" id="lg2">বাংলা / English</button><button class="lk" id="toadmin" style="opacity:.6;font-size:12px">Admin login</button></section>
+
+<section class="v" id="v-otp"><h1 id="oh">Verify it's you</h1><p class="sub" id="os">Choose where to receive your code</p>
+<div class="pills"><button id="ps" class="on">SMS</button><button id="pe">Email</button></div>
+<input class="f otpf" id="oi" name="otp" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="••••••">
+<button class="btn" id="bv">Verify</button><button class="lk" id="pb">📋 Paste code</button><button class="lk" id="rs">Resend code</button><button class="lk" id="ob2">← Back</button></section>
+
+<section class="v" id="v-reset"><h1>New password</h1><p class="sub">Choose a new password</p><input class="f" id="np" type="password" placeholder="New password (min 6)" autocomplete="new-password"><button class="btn" id="nb">Save password</button></section>
+
+<section class="v" id="v-lock"><div class="wm"><span>d</span>bank</div><h1>Enter your PIN</h1><p class="sub">Unlock with your 4-digit PIN</p>
+<input class="f otpf" id="kpi" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off">
+<button class="btn" id="kbu">Unlock</button><button class="btn g" id="kbio" style="display:none">👆 Use fingerprint / face</button><button class="lk" id="kpw">Use password instead</button></section>
+
+<section class="v" id="v-home"><div class="hd"><div class="tb"><div class="lgt">dbank</div><div class="ti"><button id="thm" aria-label="Theme" data-thm="i"></button><button id="sb" aria-label="Search" data-ic="search"></button><button id="lg3" aria-label="Language" data-ic="globe"></button><button id="bb" aria-label="Notifications" data-ic="bell"></button></div></div><small id="gr">Hello</small><h1 id="hn">Guest</h1><div class="va"><button class="vb" id="va">View All ›</button></div></div><div class="cv"></div>
+<div class="tab on" id="t-home"><div class="sl" id="sl"><div class="sc w" data-go="wal"><div class="bt"><span>MFS wallet balance</span><button id="eye" aria-label="Show or hide balance"></button></div><div class="big" id="hbal">৳ ****</div><div class="bs"><div><small>Account</small><b id="hph">••••</b></div><div><small>Status</small><b>● Active</b></div></div></div>
+<div class="sc l" data-go="loan"><div class="bt"><span>Loan account balance</span><span class="tag">Instant</span></div><div class="big" id="hl2">৳ ****</div><small>Available to borrow</small><div class="bs"><div><small>Loan limit</small><b id="hl1">৳ ****</b></div><div><small>Outstanding</small><b id="hl3">৳ ****</b></div></div></div>
+<div class="sc u" data-go="wal"><div class="bt"><span>USD account</span><span class="tag">Earn 1% p.a.</span></div><div class="big" id="husd">$ 0.00</div><small>USDT deposits are kept here</small><div class="bs"><div><small>Earned</small><b id="hue">$0.00</b></div><div><small>Flexible earn</small><b>Daily</b></div></div></div><div class="sc cc" data-go="card"><div class="bt"><span>Prepaid card</span><span class="tag">BDT · USD</span></div><div id="hcc" style="display:flex;flex-direction:column;flex:1;margin-top:8px"></div></div></div><div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
+<div class="row wq"><button class="btn sm" data-w="add">➕ Deposit</button><button class="btn g sm" data-w="wd">⬆ Withdraw</button><button class="btn g sm" data-w="st">📄 Statement</button><button class="btn g sm" data-w="snd">💸 Send</button></div><div class="qb"><div id="qp1" class="gr3" style="grid-template-columns:repeat(5,1fr)"><button id="q1"><span data-ic="loan"></span>Loan</button><button id="q4"><span data-ic="card"></span>Prepaid card</button><button id="q5"><span data-ic="hist"></span>History</button><button id="q6"><span data-ic="globe"></span>বাংলা / EN</button><button id="q7"><span data-ic="save"></span>Savings</button></div></div>
+<div class="promo" id="promo"><b id="pt"></b><small id="pd"></small></div></div>
+<div class="tab" id="t-pay"><h2 style="margin-top:0">Payment methods</h2><div id="ml"></div><h2>I've paid</h2><div class="qb" style="padding-top:14px"><select class="f" id="pm"></select><input class="f" id="pa" type="number" inputmode="decimal" placeholder="Amount (৳)"><input class="f" id="px" placeholder="Transaction ID (TrxID)" maxlength="20"><button class="btn" id="pg">Submit payment</button></div></div>
+<div class="tab" id="t-wal"><div class="mc"><small>Wallet balance (tap to show/hide)</small><b id="wbal" style="font-size:28px;display:block;cursor:pointer">৳ ****</b></div>
+<div class="mc" style="margin-top:10px"><small>USD account · Flexible earn 1% p.a., added daily</small><b id="ubal" style="font-size:26px;display:block">$ 0.00</b><div class="ls"><span>Total earned</span><b id="uern">$0.00</b></div><div id="uh"></div></div><div class="tabs" id="wtb"><button data-s="add" class="on">Deposit</button><button data-s="snd">Send money</button><button data-s="wd">Withdraw</button><button data-s="st">Statement</button></div>
+<div id="s-add"><div class="pills" id="dpp" style="margin-top:12px"><button data-d="loc" class="on">bKash / Nagad / Bank</button><button data-d="cry">Crypto (USDT)</button></div><div id="dloc" class="qb" style="padding-top:14px"><select class="f" id="mfm"><option value="bKash">bKash (1.5% charge)</option><option value="Nagad">Nagad (1% charge)</option><option value="Bank">Bank (free)</option></select>
+<input class="f" id="mfa" type="number" inputmode="decimal" placeholder="Amount (৳)">
+<div class="mc" style="margin-bottom:8px"><div class="ls"><span>Amount</span><b id="mf1">৳0</b></div><div class="ls"><span>Charge</span><b id="mf2">৳0</b></div><div class="ls t"><span>Added to wallet</span><b id="mf3">৳0</b></div></div>
+<div id="mfi"></div><input class="f" id="mft" placeholder="Transaction ID / reference" maxlength="30">
+<label class="note" style="display:block">Payment screenshot (optional)<input type="file" id="mfs" accept="image/*" style="display:block;margin-top:6px;color:inherit"></label><img id="mfp" style="display:none;max-width:100%;border-radius:12px;margin:6px 0">
+<p class="note">Send the money to the account above, then submit the transaction ID. Admin will confirm and your wallet is credited.</p><button class="btn" id="mfb">Submit deposit</button></div><div id="dcry" class="qb" style="padding-top:14px;display:none"><p class="note">Deposit USDT only. It is credited 1:1 to your USD account after admin confirms.</p><select class="f" id="cdm"></select><div id="cdi"></div><input class="f" id="cda" type="number" inputmode="decimal" placeholder="Amount (USDT)"><input class="f" id="cdt" placeholder="Transaction hash / Bybit transfer ID" maxlength="100" autocomplete="off"><input class="f" id="cdu" placeholder="Your Bybit UID (optional)" maxlength="20" inputmode="numeric"><label class="note" style="display:block">Payment screenshot (required)<input type="file" id="cds" accept="image/*" style="display:block;margin-top:6px;color:inherit"></label><img id="cdp" style="display:none;max-width:100%;border-radius:12px;margin:6px 0"><button class="btn" id="cdb">Submit USDT deposit</button></div></div>
+<div id="s-snd" style="display:none"><div class="qb" style="padding-top:14px"><input class="f" id="msn" type="tel" inputmode="numeric" placeholder="Receiver phone number (01XXXXXXXXX)" maxlength="14"><input class="f" id="msa" type="number" inputmode="decimal" placeholder="Amount (৳)"><input class="f" id="msr" placeholder="Reference (optional)" maxlength="30"><p class="note">Money goes instantly to the receiver's wallet. The receiver must have an dbank account. No charge.</p><button class="btn" id="msb">Send money</button></div></div>
+<div id="s-wd" style="display:none"><div class="qb" style="padding-top:14px"><select class="f" id="mwm"><option>bKash</option><option>Nagad</option><option>Upay</option><option>Rocket</option><option>Bank</option></select>
+<input class="f" id="mwa" type="number" inputmode="decimal" placeholder="Withdraw amount (৳)"><input class="f" id="mwn" type="tel" placeholder="bKash number" maxlength="20">
+<div id="mwk" style="display:none"><input class="f" id="mwb" placeholder="Bank name" maxlength="40"><input class="f" id="mwh" placeholder="Account holder name" maxlength="40"></div>
+<p class="note">Amount is held from your wallet now. Admin sends the money and confirms. If rejected, it returns to your wallet.</p><button class="btn" id="mwg">Request withdraw</button></div></div>
+<div id="s-st" style="display:none"><select class="f" id="msp"><option value="0">All time</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option></select><button class="btn g sm" id="mdl">⬇ Download statement (CSV)</button><div id="mst" style="margin-top:10px"></div></div></div>
+<div class="tab" id="t-loan"><h2 style="margin-top:0">Apply for a loan</h2><div class="mc" style="margin-bottom:10px"><div class="ls"><span>Your loan limit</span><b id="lim1">৳0</b></div><div class="ls"><span>Available now</span><b id="lim2">৳0</b></div><div class="ls"><span>Credit score</span><b id="lcs">-</b></div><div class="ls"><span>Tier</span><b id="lti">-</b></div><div class="ls"><span>Current outstanding</span><b id="lim3">৳0</b></div></div><div class="qb" style="padding-top:14px">
+<input class="f" id="la" type="number" inputmode="decimal" placeholder="Loan amount (৳)">
+<select class="f" id="lpl"><option value="full">Pay in full (30 days interest-free)</option><option value="2">2 installments (10% interest)</option><option value="3">3 installments (10% interest)</option></select><select class="f" id="lm"><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Bank NPSB">Bank (NPSB)</option></select>
+<input class="f" id="ln" type="tel" inputmode="numeric" placeholder="bKash / Nagad number" maxlength="11">
+<div id="lbk" style="display:none"><input class="f" id="lbn" placeholder="Bank name" maxlength="40"><input class="f" id="lbh" placeholder="Account holder name" maxlength="40"><input class="f" id="lbr" placeholder="Routing number (optional)" maxlength="12"></div>
+<div class="mc" style="margin-bottom:8px"><div class="ls"><span>Loan amount</span><b id="c1">৳0</b></div><div class="ls"><span>Processing fee (1%)</span><b id="c2">৳0</b></div><div class="ls t"><span>You receive</span><b id="c3">৳0</b></div></div>
+<p class="note" id="lcl"></p><p class="note">The loan amount (minus 1% fee) is added to your wallet instantly. 14 days interest-free, next 7 days 5%, next 7 days 10%, then 14%.</p>
+<label class="note" style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="lag"><span>I agree: 1% processing fee is deducted. 14 days interest-free, next 7 days 5%, next 7 days 10%, then 14% interest on the loan amount. Installment plans carry 10% interest.</span></label><button class="btn" id="lb">Apply for loan</button></div>
+<div><h2>Repay loan</h2><div id="rpc" style="display:none"></div><div class="qb" style="padding-top:14px"><select class="f" id="rl"></select><input class="f" id="ra" type="number" inputmode="decimal" placeholder="Repayment amount (৳)"><input id="rr" type="hidden"><p class="note" id="rwn"></p><p class="note">Repayment is taken instantly from your MFS wallet balance and confirmed with an OTP.</p><button class="btn" id="rb">Repay from wallet</button></div>
+<h2>My repayments</h2><div id="rh" class="hi" style="text-align:left"></div>
+</div><h2>My loans</h2><div id="lh"></div></div>
+<div class="tab" id="t-sav"><h2 style="margin-top:0">Savings</h2><div class="pills" id="svp"><button data-k="fd" class="on">Fixed deposit (FD)</button><button data-k="dps">DPS</button></div><div class="qb" style="padding-top:14px"><div class="ls"><span>Wallet balance</span><b id="svw">৳0</b></div><input class="f" id="sva" type="number" inputmode="decimal" placeholder="Deposit amount (৳)"><select class="f" id="svt"></select><select class="f" id="svr"></select><div class="mc" id="svc"></div><button class="btn" id="svb">Open FD</button></div><h2>My savings</h2><div id="svl"></div></div><div class="tab" id="t-card"><h2 style="margin-top:0">Virtual multi-currency prepaid card</h2><div id="ccv"></div></div><div class="tab" id="t-hist"><h2 style="margin-top:0">My payments</h2><div id="ph" class="hi" style="text-align:left"></div></div><div class="tab" id="t-me"><div class="hi" id="pr"></div><button class="btn" id="mesv" style="margin-bottom:8px">🏦 Savings (FD / DPS)</button><button class="btn" id="mecc" style="margin-bottom:8px">💳 Virtual prepaid card (BDT / USD)</button><button class="btn g" id="lg">বাংলা / English</button><button class="btn g" id="thm2" data-thm="t"></button><h2>My data backup</h2><div class="row"><button class="btn g sm" id="ex">⬇ Export</button><label class="btn g sm" style="text-align:center;cursor:pointer">⬆ Import<input id="im" type="file" accept=".json" hidden></label></div><h2>Security</h2><div class="qb" style="padding-top:14px"><p class="note" id="sst"></p><input class="f" id="sp1" type="password" inputmode="numeric" maxlength="4" placeholder="New 4-digit PIN" autocomplete="off"><input class="f" id="sp2" type="password" inputmode="numeric" maxlength="4" placeholder="Confirm PIN" autocomplete="off"><button class="btn" id="spb">Save PIN</button><button class="btn g" id="sbio">Enable fingerprint / face</button><button class="btn d" id="srm">Remove PIN</button><p class="note">Saving or removing a PIN needs an OTP. Biometric works only on https and on a phone/computer that has fingerprint or face unlock.</p></div>
+<button class="btn d" id="lo">Logout</button></div>
+<button class="fab" id="aib" aria-label="Assistant">💬</button><div class="sheet" id="ais"><div class="row" style="margin:0 0 6px;justify-content:space-between;align-items:center"><b>dbank Assistant</b><button class="btn g sm" id="aix">✕</button></div><div class="msgs" id="aim"></div><div class="chips" id="aic"></div><div class="row"><input class="f" id="aiq" placeholder="Ask about loan, due, interest..." style="margin:0"><button class="btn sm" id="aig">Send</button></div></div><nav class="bn"><button class="on" data-t="home"><span data-ic="home"></span>Home</button><button data-t="wal"><span data-ic="pay"></span>Wallet</button><button data-t="loan"><span data-ic="loan"></span>Loan</button><button data-t="hist"><span data-ic="hist"></span>History</button><button data-t="me"><span data-ic="user"></span>Account</button></nav></section>
+
+<section class="v" id="v-alogin"><h1>Admin</h1><p class="sub">Enter admin password</p><input class="f" id="ap" type="password" placeholder="Password"><button class="btn" id="ba">Enter</button><button class="lk" id="afp">Forgot admin password?</button><button class="lk" id="ab">← Back</button></section>
+
+<section class="v" id="v-admin"><h1>Admin panel</h1><p class="hi" id="ast"></p><h2>Payment methods</h2><div id="am"></div>
+<h2 id="mt">Add method</h2><input class="f" id="mn" placeholder="Name (e.g. Nagad)"><input class="f" id="mu" placeholder="Account number"><input class="f" id="mo" placeholder="Note (optional)">
+<div class="row"><button class="btn" id="ms">Save method</button><button class="btn g" id="mc" style="display:none">Cancel</button></div>
+<h2>Wallet accounts (shown in Deposit)</h2><div class="qb" style="padding-top:14px"><input class="f" id="as_b" placeholder="bKash number"><input class="f" id="as_n" placeholder="Nagad number"><input class="f" id="as_k" placeholder="Bank name"><input class="f" id="as_h" placeholder="Account holder name"><input class="f" id="as_a" placeholder="Bank account number"><input class="f" id="as_r" placeholder="Branch (optional)">
+<label class="note" style="display:block">Bangla QR image (upload to change)<input type="file" id="as_q" accept="image/*" style="display:block;margin-top:6px;color:inherit"></label><img id="as_p" style="display:none;max-width:200px;border-radius:12px;background:#fff;padding:6px;margin-bottom:8px"><button class="btn g" id="as_s">Save wallet accounts</button></div>
+<h2>Savings rates (FD / DPS)</h2><div class="qb" style="padding-top:14px"><div id="asv"></div><input class="f" id="sm_f" type="number" placeholder="Minimum FD amount (৳)"><input class="f" id="sm_d" type="number" placeholder="Minimum DPS installment (৳)"><input class="f" id="sm_e" type="number" step="0.01" placeholder="Early encashment rate (% p.a.)"><p class="note">Set the tenor (months) and rate (% per year) for each plan. Remove a row to stop offering that tenor. Tax is 15% of interest.</p><button class="btn g" id="sv_s">Save savings rates</button></div><h2>Crypto deposit (USDT)</h2><div class="qb" style="padding-top:14px"><input class="f" id="ac_u" placeholder="Bybit UID"><input class="f" id="ac_n" placeholder="Note shown to users (optional)"><div id="ac_a"></div><button class="btn g" id="ac_s">Save crypto settings</button></div><h2>Crypto deposit requests</h2><div id="acr"></div><h2>Wallet requests</h2><div id="aw"></div>
+<h2>Admin account</h2><div class="qb" style="padding-top:14px"><input class="f" id="aa_c" type="password" placeholder="Current password"><input class="f" id="aa_n" type="password" placeholder="New password (6+ characters)"><button class="btn g" id="aa_p">Change admin password</button>
+<input class="f" id="aa_ph" type="tel" placeholder="Admin phone number" style="margin-top:14px"><input class="f" id="aa_em" type="email" placeholder="Admin email"><button class="btn g" id="aa_s">Save phone and email</button></div>
+<h2>Loan report</h2><div class="mc" id="arpt"></div><h2>Loan limit</h2><div class="qb" style="padding-top:14px"><small class="note" style="display:block">Default limit for all users</small><input class="f" id="gl" type="number" inputmode="decimal" placeholder="Default limit (৳)"><button class="btn g" id="gls">Save default limit</button>
+<small class="note" style="display:block;margin-top:14px">Set a different limit for one user</small><select class="f" id="ulu"></select><input class="f" id="ull" type="number" inputmode="decimal" placeholder="User limit (৳) - empty = use default"><button class="btn g" id="uls">Save user limit</button><button class="btn d" id="ubk">Block / Unblock user</button><div class="hi" id="ulv" style="text-align:left;margin:10px 0 0"></div></div>
+<h2>Repayment bank account</h2><div class="qb" style="padding-top:14px"><input class="f" id="rab" placeholder="Bank name" maxlength="40"><input class="f" id="rah" placeholder="Account holder name" maxlength="40"><input class="f" id="ran" placeholder="Account number" maxlength="25"><input class="f" id="rac" placeholder="Branch (optional)" maxlength="40"><input class="f" id="rar" placeholder="Routing number (optional)" maxlength="12"><input class="f" id="rao" placeholder="Note (optional)" maxlength="80"><button class="btn g" id="ras">Save repayment account</button></div>
+<h2>Loan repayments</h2><div id="arp"></div>
+<h2>Reminders</h2><div class="qb" style="padding-top:14px"><p class="note">SMS and email reminders go to every customer with an unpaid loan on the 25th of each month. It is sent when the admin panel or the user's app is opened.</p><button class="btn g" id="rmb">Send due reminders now</button><div class="hi" id="rmr" style="margin-top:8px"></div></div>
+<h2>Loans</h2><input class="f" id="lsf" placeholder="Search loans (name, phone, status, overdue)"><button class="btn g sm" id="csv">⬇ Export CSV</button><div id="aln" style="margin-top:10px"></div><h2>Activity log</h2><div class="hi" id="alg" style="text-align:left"></div><h2>Payments</h2><div id="apy"></div><h2>Users (<span id="uc">0</span>)</h2><div id="ul" class="hi" style="text-align:left"></div>
+<h2>SMS test (TextBee)</h2><input class="f" id="tn" type="tel" placeholder="Phone to test (01XXXXXXXXX)" maxlength="11"><button class="btn g" id="tt">Send test SMS</button><div class="hi" id="trs" style="word-break:break-all;margin-top:8px"></div>
+<h2>Full backup</h2><div class="row"><button class="btn g sm" id="ax">⬇ Export all</button><label class="btn g sm" style="text-align:center;cursor:pointer">⬆ Import all<input id="ai" type="file" accept=".json" hidden></label></div>
+<button class="btn d" id="al">Exit admin</button></section>
+<div class="err" id="er" role="alert" aria-live="polite"></div></main>
+<script>
+/* ===== CONFIG ===== */
+const CFG={
+ TB_KEY:'txb_u4Q5PCTBqT2y2sX7s8bBmEMjrU2R4F0a',TB_DEVICE:'6ae86eaf59a24e053f321556',
+ EMAILJS:{service:'service_ukxyvm9',template:'template_vv070ci',key:'N2U5sRfeH5Mc7WJ6V',payTemplate:'template_fgxrtx9',loanTemplate:''},
+ ADMIN_EMAIL:'dhibbo69@gmail.com',   // fill from emailjs.com (template uses {{to_email}} and {{code}})
+ CLOUD:'',
+ CLOUDS:['https://dpay-efbe9-default-rtdb.firebaseio.com','https://dpay-efbe9-default-rtdb.asia-southeast1.firebasedatabase.app','https://dpay-efbe9-default-rtdb.europe-west1.firebasedatabase.app'],                                   // optional Firebase Realtime DB URL, e.g. https://xxx-default-rtdb.firebaseio.com
+ ADMIN_HASH:'3a450479f542f9da69568c3a820ccfd953954e514e30df374e38b7c61cc46c5e'   // sha('dpay-admin:'+yourPassword) - run in console to change
+};
+const $=i=>document.getElementById(i),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const show=v=>{document.querySelectorAll('.v').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$('card').className='card '+({home:'home',auth:'hero',lock:'hero'}[v]||'');document.body.classList.toggle('h',v==='home');window.scrollTo(0,0);err();if(v==='auth')ql()};
+const err=(m,ok)=>{$('er').textContent=T(m||'');$('er').className='err'+(ok?' ok':'')};
+const busy=(b,v)=>{b.disabled=v;b.classList.toggle('load',v)};
+const norm=p=>{p=String(p||'').replace(/\D/g,'').replace(/^880/,'');if(p[0]!=='0')p='0'+p;return /^01[3-9]\d{8}$/.test(p)?'+88'+p:null};
+const sha=async s=>crypto.subtle?[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join(''):btoa(s);
+const dl=(name,href)=>{const a=document.createElement('a');a.href=href;a.download=name;document.body.appendChild(a);a.click();a.remove()};
+const dlJSON=(name,o)=>{const u=URL.createObjectURL(new Blob([JSON.stringify(o,null,1)],{type:'application/json'}));dl(name,u);setTimeout(()=>URL.revokeObjectURL(u),2000)};
+const readJSON=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{try{res(JSON.parse(r.result))}catch{rej(new Error('Invalid backup file'))}};r.readAsText(f)});
+
+/* ===== Language (EN / বাংলা) ===== */
+let LANG=localStorage.getItem('dp_lang')||'en';
+const BN={'Welcome back':'আবার স্বাগতম','Create your account':'অ্যাকাউন্ট খুলুন','Login':'লগইন','Register':'নিবন্ধন','Create account':'অ্যাকাউন্ট খুলুন','Phone or email':'ফোন বা ইমেইল','Password':'পাসওয়ার্ড','Full name':'পুরো নাম','Email':'ইমেইল','Forgot password?':'পাসওয়ার্ড ভুলে গেছেন?',"Verify it's you":'নিজেকে যাচাই করুন','Verify':'যাচাই করুন','Resend code':'আবার কোড পাঠান','Good morning':'শুভ সকাল','Good afternoon':'শুভ অপরাহ্ন','Good evening':'শুভ সন্ধ্যা','Quick Pay':'দ্রুত পেমেন্ট','Copy number':'নম্বর কপি','Home':'হোম','Pay':'পেমেন্ট','Account':'অ্যাকাউন্ট','Payment methods':'পেমেন্ট মাধ্যম',"I've paid":'আমি পেমেন্ট করেছি','Submit payment':'পেমেন্ট জমা দিন','My payments':'আমার পেমেন্ট','No payments yet':'এখনো কোনো পেমেন্ট নেই','Logout':'লগআউট','Number copied':'নম্বর কপি হয়েছে','Wrong code':'ভুল কোড','Pay anyone, anywhere':'যে কাউকে, যেকোনো জায়গায় পে করুন','Amount (৳)':'পরিমাণ (৳)','Transaction ID (TrxID)':'ট্রানজেকশন আইডি (TrxID)','Submitted. Waiting for admin approval':'জমা হয়েছে। অ্যাডমিনের অনুমোদনের অপেক্ষায়','Wrong phone/email or password':'ফোন/ইমেইল বা পাসওয়ার্ড ভুল','Tap to copy':'কপি করতে ট্যাপ করুন','History':'ইতিহাস','View All ›':'সব দেখুন ›','Pay anyone, anywhere':'যে কাউকে, যেকোনো জায়গায় পে করুন','Submit your TrxID':'আপনার TrxID জমা দিন','Safe & simple':'নিরাপদ ও সহজ','No new notifications':'নতুন কোনো নোটিফিকেশন নেই','New password':'নতুন পাসওয়ার্ড','Save password':'পাসওয়ার্ড সেভ করুন','My data backup':'আমার ডেটা ব্যাকআপ','Loan':'লোন','Apply for a loan':'লোনের আবেদন','Apply for loan':'লোনের আবেদন করুন','My loans':'আমার লোন','Loan amount':'লোনের পরিমাণ','Processing fee (1%)':'প্রসেসিং ফি (১%)','You receive':'আপনি পাবেন','Loan amount (৳)':'লোনের পরিমাণ (৳)','Bank name':'ব্যাংকের নাম','Account holder name':'অ্যাকাউন্টধারীর নাম','Routing number (optional)':'রাউটিং নম্বর (ঐচ্ছিক)','Loans':'লোন','Switch to light theme':'☀️ লাইট থিম','Switch to dark theme':'🌙 ডার্ক থিম','Repay loan':'লোন পরিশোধ','Submit repayment':'পরিশোধ জমা দিন','My repayments':'আমার পরিশোধ','Repayment amount (৳)':'পরিশোধের পরিমাণ (৳)','Bank transaction ID / reference':'ব্যাংক ট্রানজেকশন আইডি / রেফারেন্স','Repayment account not set yet':'পরিশোধের অ্যাকাউন্ট এখনো সেট করা হয়নি','Repayment bank account':'পরিশোধের ব্যাংক অ্যাকাউন্ট','Save repayment account':'পরিশোধের অ্যাকাউন্ট সেভ করুন','Loan repayments':'লোন পরিশোধ','Reminders':'রিমাইন্ডার','Send due reminders now':'এখনই রিমাইন্ডার পাঠান','Pay to the bank account above, then submit the reference. Admin will confirm your repayment.':'উপরের ব্যাংক অ্যাকাউন্টে টাকা পাঠিয়ে রেফারেন্স জমা দিন। অ্যাডমিন আপনার পরিশোধ নিশ্চিত করবে।','Loan limit':'লোন লিমিট','Current outstanding':'বর্তমান বকেয়া','Available balance':'উপলব্ধ ব্যালেন্স','Your loan limit':'আপনার লোন লিমিট','Available now':'এখন পাওয়া যাবে','Save default limit':'ডিফল্ট লিমিট সেভ করুন','Save user limit':'ইউজার লিমিট সেভ করুন','No loans yet':'এখনো কোনো লোন নেই','The loan amount (minus 1% fee) is added to your wallet instantly. 14 days interest-free, next 7 days 5%, next 7 days 10%, then 14%.':'অ্যাডমিন অনুমোদন না করা পর্যন্ত Pending থাকবে। অনুমোদনের পর ৩০ দিন সুদমুক্ত, তারপর লোনের ওপর ১০% সুদ যোগ হবে।'};
+const T=s=>LANG==='bn'&&BN[s]||s;
+function applyLang(){document.documentElement.lang=LANG;const w=document.createTreeWalker($('card'),NodeFilter.SHOW_TEXT);let n;
+ while(n=w.nextNode()){const t=n.nodeValue.trim();if(!t)continue;const en=n.__en||t;if(BN[en]){n.__en=en;n.nodeValue=n.nodeValue.replace(t,LANG==='bn'?BN[en]:en)}}
+ document.querySelectorAll('[placeholder]').forEach(i=>{const en=i.dataset.en||i.placeholder;if(BN[en]){i.dataset.en=en;i.placeholder=LANG==='bn'?BN[en]:en}});
+ document.querySelectorAll('input,select').forEach(i=>i.setAttribute('aria-label',i.placeholder||i.id))}
+const togLang=()=>{LANG=LANG==='bn'?'en':'bn';localStorage.setItem('dp_lang',LANG);applyLang()};
+$('lg').onclick=$('lg2').onclick=togLang;
+
+/* ===== Password hashing (PBKDF2, old SHA-256 accounts upgrade on next login) ===== */
+const hx=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+async function kdf(pw,salt){if(!crypto.subtle)return sha(pw+salt);const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+ return hx(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode('dpay:'+salt),iterations:150000},k,256))}
+async function mkpw(pw){const salt=hx(crypto.getRandomValues(new Uint8Array(16)));return{salt,p2:await kdf(pw,salt)}}
+async function chk(u,pw){if(u.p2)return await kdf(pw,u.salt)===u.p2;
+ if(u.pass&&u.pass===await sha(pw+u.phone)){Object.assign(u,await mkpw(pw));delete u.pass;try{const us=await db.get('users',{});us[uid(u.phone)]=u;await db.set('users',us)}catch{}return true}return false}
+
+/* ===== DB (cloud if configured, else this browser) ===== */
+let CLOUD=CFG.CLOUD;
+let cloudMsg='';
+const ready=(async()=>{if(CLOUD)return;let blocked=false,net=false;for(const u of CFG.CLOUDS||[]){try{const r=await fetch(u+'/.json?shallow=true');if(r.ok){CLOUD=u;return}if(r.status===401||r.status===403)blocked=true}catch{net=true}}
+ if((CFG.CLOUDS||[]).length){cloudMsg=blocked?'Firebase Rules are blocking access. Set .read and .write to true, then Publish.':net?'Cannot connect to Firebase. Check internet or turn off ad-blocker.':'Firebase URL not found. Copy it from the Data tab into CFG.CLOUD.';setTimeout(()=>err(cloudMsg),400)}})();
+const db={async get(k,d){await ready;try{if(CLOUD){const v=await (await fetch(`${CLOUD}/${k}.json`)).json();return v??d}return JSON.parse(localStorage.getItem('dp_'+k))??d}catch{return d}},
+ async set(k,v){await ready;if(CLOUD){const r=await fetch(`${CLOUD}/${k}.json`,{method:'PUT',body:JSON.stringify(v)});if(!r.ok)throw new Error('Cloud save failed');return}localStorage.setItem('dp_'+k,JSON.stringify(v))}};
+{const g=db.get.bind(db),st=db.set.bind(db),C={},cl=v=>v==null?v:JSON.parse(JSON.stringify(v));
+db.get=async(k,d)=>{const e=C[k];if(!e||Date.now()-e.t>2500)C[k]={t:Date.now(),p:g(k)};return cl(await C[k].p)??d};
+db.set=async(k,v)=>{delete C[k];await st(k,v);C[k]={t:Date.now(),p:Promise.resolve(cl(v))}}}
+const uid=p=>'u'+p.replace(/\D/g,'');
+async function methods(){let m=await db.get('methods',null);if(!m){m={bkash:{id:'bkash',name:'bKash',number:'01922384570',note:'Send Money with bKash or any bank app',on:true}};await db.set('methods',m)}else{let ch=false;Object.values(m).forEach(x=>{if('qr' in x){delete x.qr;ch=true}if(/bangla\s*qr/i.test(x.name||'')){x.name=x.name.replace(/\s*\(?bangla\s*qr\)?/i,'').trim()||'bKash';ch=true}});if(ch)await db.set('methods',m)}return Object.values(m)}
+const saveMethods=l=>db.set('methods',Object.fromEntries(l.map(m=>[m.id,m])));
+
+/* ===== OTP (SMS via TextBee, Email via EmailJS) ===== */
+const otps={};let pend=null,chan='sms',verifying=false;
+async function tb(to,message){const r=await fetch('https://api.textbee.dev/api/v1/gateway/devices/'+CFG.TB_DEVICE+'/send-sms',{method:'POST',headers:{'x-api-key':CFG.TB_KEY,'Content-Type':'application/json'},body:JSON.stringify({recipients:[to],message})});if(!r.ok){let t='';try{t=(await r.json()).message||''}catch{}throw new Error('SMS failed ('+r.status+')'+(t?': '+String(t).slice(0,90):''))}}
+async function mail(to,code){const E=CFG.EMAILJS;if(!E.service||!E.template||!E.key)throw new Error('Email OTP not set up yet (admin must add EmailJS keys)');
+ const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id:E.service,template_id:E.template,user_id:E.key,template_params:{to_email:to,email:to,user_email:to,to:to,recipient:to,reply_to:to,name:'dbank user',code,otp:code,passcode:code,message:'Your dbank code is '+code}})});if(!r.ok)throw new Error('Email failed ('+r.status+')')}
+async function sendOtp(){const u=pend.user,t=chan==='sms'?u.phone:u.email,o=otps[t];
+ if(o&&Date.now()-o.last<30000)throw new Error('Wait 30 seconds before retrying');
+ const c=String(100000+crypto.getRandomValues(new Uint32Array(1))[0]%900000);otps[t]={c,exp:Date.now()+300000,n:0,last:Date.now()};
+ try{chan==='sms'?await tb(t,c+' is your dbank verification code. Valid for 5 minutes. Do not share it.\n\n@'+location.hostname+' #'+c):await mail(t,c)}
+ catch(e){delete otps[t];throw new Error(e.message==='Failed to fetch'?'Network error':e.message)}
+ $('os').textContent=chan==='sms'?'Code sent to '+t+'. It comes from +8801968689659':'Code sent to '+t.replace(/(.).+(@.*)/,'$1***$2');}
+const paint=()=>{};
+$('oi').oninput=()=>{$('oi').value=$('oi').value.replace(/\D/g,'').slice(0,6);paint();if($('oi').value.length===6)verify()};
+
+let wac=null;
+function webotp(){if(!('OTPCredential'in window))return;if(wac)wac.abort();const ac=wac=new AbortController();setTimeout(()=>ac.abort(),300000);
+ navigator.credentials.get({otp:{transport:['sms']},signal:ac.signal}).then(o=>{if(o&&o.code){$('oi').value=o.code.replace(/\D/g,'').slice(0,6);paint();verify()}}).catch(()=>{})}
+function setChan(c){chan=c;$('ps').classList.toggle('on',c==='sms');$('pe').classList.toggle('on',c==='email')}
+async function startOtp(){show('otp');$('oh').textContent=T(pend&&pend.mode==='tx'?'Confirm with OTP':"Verify it's you");setChan(null);$('oi').value='';paint();$('os').textContent='Choose how you want to receive your code'}
+async function pick(c){clipScan(true);setChan(c);$('os').textContent='Sending code…';$('oi').value='';paint();$('oi').focus();
+ if(c==='sms')webotp();
+ try{await sendOtp();err('Code sent',1)}
+ catch(e){if(wac)wac.abort();$('os').textContent='Choose how you want to receive your code';err(e.message)}}
+$('ps').onclick=()=>pick('sms');$('pe').onclick=()=>pick('email');
+$('rs').onclick=()=>chan?pick(chan):err('Choose SMS or Email first');
+$('pb').onclick=()=>navigator.clipboard.readText().then(t=>{const d=t.replace(/\D/g,'').slice(0,6);if(d.length<6)return err('No 6-digit code copied');lastClip=d;$('oi').value=d;paint();verify()}).catch(()=>err('Allow clipboard access, or long-press the boxes and paste'));
+let lastClip='';
+async function clipOK(){try{return (await navigator.permissions.query({name:'clipboard-read'})).state==='granted'}catch{return false}}
+async function clipScan(seed){if(!navigator.clipboard||!navigator.clipboard.readText||!(await clipOK()))return;
+ try{const m=(await navigator.clipboard.readText()).match(/\b\d{6}\b/);if(!m)return;if(seed){lastClip=m[0];return}
+  if(m[0]!==lastClip&&chan&&!verifying&&$('v-otp').classList.contains('on')){lastClip=m[0];$('oi').value=m[0];verify()}}catch{}}
+setInterval(()=>{if(document.visibilityState==='visible'&&document.hasFocus()&&$('v-otp').classList.contains('on'))clipScan()},1500);
+$('ob2').onclick=()=>{if(pend&&pend.mode==='tx'){pend=null;show('home');tab(txTab);return}show('auth')};
+async function verify(){const code=$('oi').value;if(code.length<6||verifying||!pend)return;if(!chan){$('oi').value='';paint();return err('Choose SMS or Email first')}verifying=true;busy($('bv'),true);
+ try{const u=pend.user,t=chan==='sms'?u.phone:u.email,o=otps[t];
+  if(!o||o.exp<Date.now())throw new Error('Code expired. Request a new one.');
+  if(++o.n>5){delete otps[t];throw new Error('Too many attempts')}
+  if(o.c!==code)throw new Error('Wrong code');
+  delete otps[t];
+  if(pend.mode==='tx'){const run=pend.run;pend=null;verifying=false;busy($('bv'),false);show('home');tab(txTab);applyLang();run();return}
+  if(pend.mode==='register'){const us=await db.get('users',{});us[uid(u.phone)]=u;await db.set('users',us)}
+  if(pend.mode==='reset'||pend.mode==='areset'){show('reset')}else{localStorage.setItem('dp_session',uid(u.phone));sessionStorage.setItem('dp_unl','1');pend=null;await home()}
+ }catch(e){err(e.message);$('oi').value='';paint();$('oi').focus()}
+ verifying=false;busy($('bv'),false)}
+$('bv').onclick=verify;
+
+/* ===== Auth ===== */
+$('tl').onclick=()=>{$('fl').style.display='';$('fr').style.display='none';$('tl').className='on';$('tr').className='';err()};
+$('tr').onclick=()=>{$('fr').style.display='';$('fl').style.display='none';$('tr').className='on';$('tl').className='';err()};
+$('br').onclick=async()=>{const b=$('br'),name=$('rn').value.trim().slice(0,40),phone=norm($('rp').value),email=$('re').value.trim().toLowerCase(),pw=$('rw').value;
+ if(!name)return err('Enter your name');if(!phone)return err('Enter a valid phone number');
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))return err('Enter a valid email');if(pw.length<6)return err('Password needs 6+ characters');
+ busy(b,true);try{const us=await db.get('users',{});
+  if(us[uid(phone)]||Object.values(us).some(u=>u.email===email))throw new Error('Account already exists. Please login.');
+  pend={mode:'register',user:{name,phone,email,...await mkpw(pw),created:Date.now()}};await startOtp()}
+ catch(e){err(e.message)}busy(b,false)};
+$('bl').onclick=async()=>{const b=$('bl'),id=$('li').value.trim().toLowerCase(),pw=$('lp').value;if(!id||!pw)return err('Enter your phone/email and password');
+ busy(b,true);try{const us=Object.values(await db.get('users',{})),p=norm(id);
+  const u=us.find(x=>x.email===id||(p&&x.phone===p));if(!u||!(await chk(u,pw)))throw new Error('Wrong phone/email or password');
+  pend={mode:'login',user:u};await startOtp()}catch(e){err(e.message)}busy(b,false)};
+
+/* ===== Home ===== */
+const card=(m,admin)=>`<div class="mc ${m.on?'':'off'}"><b>${esc(m.name)}</b><div class="n">${esc(m.number)}</div>${m.note?`<small>${esc(m.note)}</small>`:''}
+<div class="row">${admin?`<button class="btn g sm" data-a="edit" data-i="${esc(m.id)}">Edit</button><button class="btn g sm" data-a="tog" data-i="${esc(m.id)}">${m.on?'Hide':'Show'}</button><button class="btn d sm" data-a="del" data-i="${esc(m.id)}">Delete</button>`
+:`<button class="btn g sm" data-a="copy" data-i="${esc(m.id)}">Copy number</button>`}</div></div>`;
+async function home(){const us=await db.get('users',{}),u=us[localStorage.getItem('dp_session')];if(!u){show('auth');return}
+ $('hn').textContent=u.name;$('hph').textContent='•••• '+String(u.phone||'').slice(-4);$('pr').textContent=u.phone+' · '+u.email;const hr=new Date().getHours();$('gr').textContent=hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';const l=(await methods()).filter(m=>m.on);window._m=l;
+ $('ml').innerHTML=l.length?l.map(m=>card(m)).join(''):'<p class="sub">No payment methods available.</p>';fillHome(l);refreshSec();fillPay(l);fillLoan();fillRepay();fillWal();fillCards();fillUsd();fillSav();lmethUI();lcalcUI();tab('home');show('home');applyLang();checkRem(localStorage.getItem('dp_session')).then(n=>n&&(fillLoan(),fillRepay())).catch(()=>{})}
+$('ml').onclick=e=>{const b=e.target.closest('button');if(!b)return;const m=window._m.find(x=>x.id===b.dataset.i);if(!m)return;
+ if(b.dataset.a==='copy')navigator.clipboard.writeText(m.number).then(()=>err('Number copied',1)).catch(()=>err(m.number,1));
+};
+function tab(t){['home','wal','pay','loan','hist','me','card','sav'].forEach(x=>$('t-'+x).classList.toggle('on',x===t));document.querySelectorAll('.bn button').forEach(b=>b.classList.toggle('on',b.dataset.t===t))}
+document.querySelectorAll('.bn button').forEach(b=>b.onclick=()=>tab(b.dataset.t));
+const copyNum=m=>navigator.clipboard.writeText(m.number).then(()=>err('Number copied',1)).catch(()=>err(m.number,1));
+function fillHome(l){$('q1').onclick=()=>tab('loan');$('q4').onclick=()=>tab('card');$('q5').onclick=()=>tab('hist');$('q6').onclick=togLang}
+const EYE='<svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',EYEX='<svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A9.7 9.7 0 0112 5c6 0 10 7 10 7a17 17 0 01-3.2 4M6.5 6.6C3.7 8.4 2 12 2 12s4 7 10 7c1.6 0 3-.4 4.2-1M9.9 9.9a3 3 0 004.2 4.2"/></svg>';
+let balShown=false;function renderBal(){const b=window._bal||{lim:0,av:0,out:0},h=!balShown,m=v=>h?'৳ ****':tk(v);$('hbal').textContent=m(b.av);$('wbal').textContent=m(b.av);$('hl1').textContent=m(b.lim);$('hl3').textContent=m(b.out);$('hl2').textContent=m(b.la||0);$('eye').innerHTML=h?EYEX:EYE}
+$('eye').onclick=$('hbal').onclick=()=>{balShown=!balShown;renderBal()};$('hbal').style.cursor='pointer';$('lo').addEventListener('click',()=>{balShown=false});
+const sw=r=>{$('fl').style.display=r?'none':'';$('fr').style.display=r?'':'none';$('gor').style.display=r?'none':'';$('gol').style.display=r?'':'none';$('at').textContent=r?'Create your account':'Welcome back';err()};
+$('gor').onclick=()=>sw(true);$('gol').onclick=()=>sw(false);
+$('lo').onclick=()=>{localStorage.removeItem('dp_session');sessionStorage.removeItem('dp_unl');show('auth')};
+$('ex').onclick=async()=>{const us=await db.get('users',{}),u=us[localStorage.getItem('dp_session')];if(u)dlJSON('dpay-my-data.json',{type:'dpay-user',user:u})};
+$('im').onchange=async e=>{try{const d=await readJSON(e.target.files[0]);if(d.type!=='dpay-user'||!d.user?.phone)throw new Error('Not a Dpay user backup');
+ const us=await db.get('users',{}),id=localStorage.getItem('dp_session');if(uid(d.user.phone)!==id||!us[id])throw new Error('This backup belongs to another account');const cur=us[id];us[id]={...d.user};['pass','p2','salt'].forEach(k=>{if(cur[k]===undefined)delete us[id][k];else us[id][k]=cur[k]});await db.set('users',us);err('Data restored',1)}catch(x){err(x.message)}e.target.value=''};
+
+/* ===== Admin ===== */
+let editId=null;
+$('toadmin').onclick=()=>show('alogin');$('ab').onclick=()=>show('auth');
+$('ba').onclick=async()=>{{const ac=await db.get('adminCfg',{});if(await sha('dpay-admin:'+$('ap').value)!==(ac.hash||CFG.ADMIN_HASH))return err('Wrong password')}$('ap').value='';sessionStorage.setItem('dp_admin','1');admin()};
+$('al').onclick=()=>{sessionStorage.removeItem('dp_admin');show('auth')};
+async function admin(){const l=await methods(),us=Object.values(await db.get('users',{}));window._a=l;
+ $('ast').textContent=CLOUD?'Storage: cloud (shared with everyone)':'Storage: this browser only. '+(cloudMsg||'Add a CLOUD url so all visitors see changes.');
+ $('am').innerHTML=l.map(m=>card(m,1)).join('');$('uc').textContent=us.length;
+ $('ul').innerHTML=us.map(u=>`${esc(u.name)} · ${esc(u.phone)} · ${esc(u.email)}`).join('<br>')||'No users yet';await adminPays();await adminLoans();await adminRepays();await loadRA();await loadAdminWal();show('admin');applyLang();checkRem().then(n=>n&&adminLoans()).catch(()=>{})}
+function resetForm(){editId=null;['mn','mu','mo'].forEach(i=>$(i).value='');$('mt').textContent='Add method';$('mc').style.display='none'}
+$('mc').onclick=resetForm;
+$('ms').onclick=async()=>{const name=$('mn').value.trim(),number=$('mu').value.trim();if(!name||!number)return err('Name and number are required');
+ try{const l=await methods(),ex=l.find(m=>m.id===editId);
+  if(ex){Object.assign(ex,{name,number,note:$('mo').value.trim()});}
+  else l.push({id:'m'+Date.now(),name,number,note:$('mo').value.trim(),on:true});
+  await saveMethods(l);resetForm();await admin();err('Saved',1)}catch(e){err(e.message)}};
+$('am').onclick=async e=>{const b=e.target.closest('button');if(!b)return;const l=await methods(),m=l.find(x=>x.id===b.dataset.i);if(!m)return;
+ try{if(b.dataset.a==='edit'){editId=m.id;$('mn').value=m.name;$('mu').value=m.number;$('mo').value=m.note||'';$('mt').textContent='Edit method';$('mc').style.display='';$('mn').scrollIntoView({behavior:'smooth'});return}
+  if(b.dataset.a==='tog')m.on=!m.on;
+  if(b.dataset.a==='del'){if(!confirm('Delete '+m.name+'?'))return;l.splice(l.indexOf(m),1)}
+  await saveMethods(l);await admin()}catch(x){err(x.message)}};
+$('ax').onclick=async()=>dlJSON('dpay-full-backup.json',{type:'dpay-full',users:await db.get('users',{}),methods:await db.get('methods',{}),loans:await db.get('loans',{}),loanDefault:await db.get('loanDefault',DEF_LIMIT),loanLimits:await db.get('loanLimits',{}),repays:await db.get('repays',{}),repayAcc:await db.get('repayAcc',null),payments:await db.get('payments',{})});
+$('ai').onchange=async e=>{try{const d=await readJSON(e.target.files[0]);if(d.type!=='dpay-full')throw new Error('Not a Dpay full backup');
+ if(!confirm('Replace all current users and methods with this backup?'))return;await db.set('users',d.users||{});await db.set('methods',d.methods||{});if(d.loans)await db.set('loans',d.loans);if(d.loanDefault!=null)await db.set('loanDefault',d.loanDefault);if(d.loanLimits)await db.set('loanLimits',d.loanLimits);if(d.repays)await db.set('repays',d.repays);if(d.repayAcc)await db.set('repayAcc',d.repayAcc);if(d.payments)await db.set('payments',d.payments);await admin();err('Backup restored',1)}catch(x){err(x.message)}e.target.value=''};
+
+$('tt').onclick=async()=>{const p=norm($('tn').value);if(!p)return err('Enter a valid phone number');busy($('tt'),true);$('trs').textContent='Sending…';
+ try{const r=await fetch('https://api.textbee.dev/api/v1/gateway/devices/'+CFG.TB_DEVICE+'/send-sms',{method:'POST',headers:{'x-api-key':CFG.TB_KEY,'Content-Type':'application/json'},body:JSON.stringify({recipients:[p],message:'dbank test SMS '+new Date().toLocaleTimeString()})});
+  const t=await r.text();$('trs').textContent='TextBee replied: HTTP '+r.status+' '+t.slice(0,300)}catch(e){$('trs').textContent='Request blocked/failed: '+e.message}busy($('tt'),false)};
+/* ===== Forgot password ===== */
+$('fp').onclick=async()=>{const id=$('li').value.trim().toLowerCase();if(!id)return err('Enter your phone or email first');
+ try{const us=Object.values(await db.get('users',{})),p=norm(id),u=us.find(x=>x.email===id||(p&&x.phone===p));if(!u)return err('No account found');pend={mode:'reset',user:u};await startOtp()}catch(e){err(e.message)}};
+$('nb').onclick=async()=>{const pw=$('np').value;if(pw.length<6)return err('Password needs 6+ characters');
+ if(pend&&pend.mode==='areset'){try{const c=await db.get('adminCfg',{});c.hash=await sha('dpay-admin:'+pw);await db.set('adminCfg',c);pend=null;$('np').value='';show('alogin');err('Admin password changed. Please login.',1)}catch(e){err(e.message)}return}const u=pend&&pend.mode==='reset'&&pend.user;if(!u)return show('auth');
+ try{Object.assign(u,await mkpw(pw));delete u.pass;const us=await db.get('users',{});us[uid(u.phone)]=u;await db.set('users',us);pend=null;$('np').value='';show('auth');err('Password changed. Please login.',1)}catch(e){err(e.message)}};
+
+/* ===== Payments (user submits TrxID, admin approves) ===== */
+const pays=()=>db.get('payments',{});
+const stl={pending:'⏳ Pending',approved:'✅ Approved',rejected:'❌ Rejected'};
+async function fillPay(l){$('pm').innerHTML=l.map(m=>`<option value="${esc(m.id)}">${esc(m.name)}</option>`).join('');const me=localStorage.getItem('dp_session');
+ const a=Object.values(await pays()).filter(p=>p.uid===me).sort((x,y)=>y.ts-x.ts);
+ $('ph').innerHTML=a.map(p=>`${new Date(p.ts).toLocaleDateString()} · ৳${esc(p.amount)} · ${esc(p.trx)} · ${stl[p.status]||esc(p.status)}`).join('<br>')||T('No payments yet')}
+async function payMail(p,u,mn){const E=CFG.EMAILJS;if(!E.service||!E.key)return 'EmailJS not set up';const tpl=E.payTemplate||E.template,when=new Date(p.ts).toLocaleString(),m=mn||p.method;
+ const txt='Payment submitted\nMethod: '+m+'\nAmount: ৳'+p.amount+'\nTrxID: '+p.trx+'\nName: '+(u.name||'')+'\nPhone: '+(u.phone||'')+'\nEmail: '+(u.email||'')+'\nTime: '+when+'\nStatus: Pending';
+ const send=to=>fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id:E.service,template_id:tpl,user_id:E.key,template_params:{to_email:to,email:to,user_email:to,to:to,recipient:to,reply_to:to,name:u.name||'',user_name:u.name||'',user_phone:u.phone||'',user_mail:u.email||'',amount:p.amount,trx:p.trx,trx_id:p.trx,method:m,time:when,date:new Date(p.ts).toLocaleDateString(),receipt_id:p.id,status:'Pending',subject:'dbank payment '+p.trx,message:txt,code:p.trx,otp:p.trx,passcode:p.trx}})}).then(async r=>{if(!r.ok)throw new Error('Email failed ('+r.status+'): '+(await r.text()).slice(0,80));return true});
+ const r=await Promise.allSettled([send(CFG.ADMIN_EMAIL),...(u.email?[send(u.email)]:[])]);const bad=r.find(x=>x.status==='rejected');return bad?String(bad.reason.message||bad.reason):''}
+$('pg').onclick=async()=>{const amount=parseFloat($('pa').value),trx=$('px').value.trim().toUpperCase();if(!(amount>0))return err('Enter a valid amount');if(!/^[A-Z0-9]{6,20}$/.test(trx))return err('Enter a valid TrxID');
+ busy($('pg'),true);try{const all=await pays();if(Object.values(all).some(p=>p.trx===trx))throw new Error('This TrxID is already submitted');
+  const id='p'+Date.now();all[id]={id,uid:localStorage.getItem('dp_session'),method:$('pm').value,amount,trx,status:'pending',ts:Date.now()};await db.set('payments',all);
+  $('pa').value=$('px').value='';await fillPay(window._m);
+  const rec=all[id],us=await db.get('users',{}),mm=(window._m||[]).find(x=>x.id===rec.method),why=await payMail(rec,us[rec.uid]||{},mm&&mm.name);
+  err(!why?'Submitted. Receipt emailed to you and admin':'Submitted, but email not sent: '+why,1)}catch(e){err(e.message)}busy($('pg'),false)};
+async function adminPays(){const us=await db.get('users',{}),a=Object.values(await pays()).sort((x,y)=>y.ts-x.ts);
+ $('apy').innerHTML=a.map(p=>{const u=us[p.uid]||{};return `<div class="mc"><b>৳${esc(p.amount)}</b> · ${esc(p.trx)}<small>${esc(u.name||p.uid)} · ${esc(u.phone||'')} · ${new Date(p.ts).toLocaleString()} · ${esc(p.status)}</small>${p.status==='pending'?`<div class="row"><button class="btn g sm" data-a="ok" data-i="${esc(p.id)}">Approve</button><button class="btn d sm" data-a="no" data-i="${esc(p.id)}">Reject</button></div>`:''}</div>`}).join('')||'<p class="hi">No payments yet</p>'}
+$('apy').onclick=async e=>{const b=e.target.closest('button');if(!b)return;try{const all=await pays(),p=all[b.dataset.i];if(!p)return;p.status=b.dataset.a==='ok'?'approved':'rejected';await db.set('payments',all);await adminPays()}catch(x){err(x.message)}};
+
+/* ===== Loans ===== */
+const FEE=0.01,RATE=0.10,FREE_DAYS=30,DAY=864e5;
+const loans=()=>db.get('loans',{});
+const DEF_LIMIT=5000;
+const getLim=async()=>({def:(await db.get('loanDefault',DEF_LIMIT)),usr:await db.get('loanLimits',{})});
+const limOf=(L,id)=>{const v=L.usr[id];return v!=null&&v!==''?Number(v):Number(L.def)};
+const usedOf=(all,id)=>Object.values(all).filter(l=>l.uid===id&&(l.status==='pending'||l.status==='approved')).reduce((t,l)=>t+l.amount,0);
+const tk=n=>'৳'+(Math.round(n*100)/100).toLocaleString('en-US',{maximumFractionDigits:2});
+const lcalc=a=>{const fee=Math.round(a*FEE*100)/100;return{fee,recv:Math.round((a-fee)*100)/100}};
+function lstate(l,at){at=at||Date.now();if(l.status!=='approved')return{due:l.amount,interest:0,free:null,rem:l.amount};
+ if(l.plan==='inst'){const n=l.n||2,interest=Math.round(l.amount*RATE*100)/100,due=l.amount+interest,per=Math.round(due/n*100)/100,paid=l.paid||0;let cum=0,exp=0,next=null;
+  for(let k=1;k<=n;k++){const a=k<n?per:Math.round((due-per*(n-1))*100)/100,d=l.approvedAt+k*FREE_DAYS*DAY;cum+=a;if(at>=d)exp=cum;if(!next&&cum>paid+0.005)next={d,a:Math.round((cum-paid)*100)/100}}
+  return{due,interest,free:next?next.d:null,over:paid+0.005<exp,left:next?Math.max(0,Math.ceil((next.d-Date.now())/DAY)):0,rem:Math.max(0,Math.round((due-paid)*100)/100),next,n,per}}
+ const end=l.approvedAt+14*DAY,dd=Math.ceil((at-l.approvedAt)/DAY),rt=dd<=14?0:dd<=21?.05:dd<=28?.1:.14,over=rt>0,interest=Math.round(l.amount*rt*100)/100,due=l.amount+interest;
+ return{due,interest,free:end,over,rt,left:Math.max(0,Math.ceil((end-Date.now())/DAY)),rem:Math.max(0,Math.round((due-(l.paid||0))*100)/100)}}
+const lbadge=l=>{if(l.status==='pending')return'<span class="bdg p">⏳ Pending</span>';if(l.status==='rejected')return'<span class="bdg r">❌ Rejected</span>';if(l.status==='repaid')return'<span class="bdg d">✔ Repaid</span>';return lstate(l).over?'<span class="bdg r">⚠ Overdue</span>':'<span class="bdg a">✅ Approved</span>'};
+function lcard(l,admin,u){const st=lstate(l),dest=l.method==='Bank NPSB'?`${esc(l.bank||'')} · A/C ${esc(l.acc)}${l.holder?' · '+esc(l.holder):''}${l.routing?' · RT '+esc(l.routing):''}`:esc(l.acc);
+ let info='';
+ if(l.status==='approved'&&l.plan==='inst'){info=`<div class="ls"><span>Plan</span><b>${st.n} installments · ${tk(st.per)} each</b></div><div class="ls"><span>Interest (10%)</span><b>${tk(st.interest)}</b></div>${st.next?`<div class="ls"><span>Next installment</span><b>${tk(st.next.a)} by ${new Date(st.next.d).toLocaleDateString()}${st.over?' ⚠':''}</b></div>`:''}${l.paid?`<div class="ls"><span>Paid</span><b>${tk(l.paid)}</b></div>`:''}<div class="ls t"><span>Remaining</span><b>${tk(st.rem)}</b></div>`}else if(l.status==='approved'){info=st.over?`<div class="ls"><span>Interest (${Math.round(st.rt*100)}%)</span><b>${tk(st.interest)}</b></div>${l.paid?`<div class="ls"><span>Total due</span><b>${tk(st.due)}</b></div><div class="ls"><span>Paid</span><b>${tk(l.paid)}</b></div>`:''}<div class="ls t"><span>${l.paid?'Remaining':'Total due'}</span><b>${tk(st.rem)}</b></div><div class="note">Interest-free period ended ${new Date(st.free).toLocaleDateString()}</div>`
+  :`<div class="ls"><span>Interest-free until</span><b>${new Date(st.free).toLocaleDateString()} (${st.left} days left)</b></div>${l.paid?`<div class="ls"><span>Total due</span><b>${tk(st.due)}</b></div><div class="ls"><span>Paid</span><b>${tk(l.paid)}</b></div>`:''}<div class="ls t"><span>${l.paid?'Remaining':'Total due'}</span><b>${tk(st.rem)}</b></div>`}
+ const acts=admin&&l.status==='pending'?`<div class="row"><button class="btn g sm" data-a="lok" data-i="${esc(l.id)}">Approve</button><button class="btn d sm" data-a="lno" data-i="${esc(l.id)}">Reject</button></div>`:admin&&l.status==='approved'?`<div class="row"><button class="btn g sm" data-a="lpd" data-i="${esc(l.id)}">Mark repaid</button></div>`:'';
+ return `<div class="mc"><b>${tk(l.amount)}</b>${lbadge(l)}<small>${admin&&u?esc(u.name||l.uid)+' · '+esc(u.phone||'')+' · ':''}${new Date(l.ts).toLocaleString()}</small>
+${l.plan==='inst'?`<div class="ls"><span>Plan</span><b>${l.n} installments (10% interest)</b></div>`:''}<div class="ls"><span>Fee (1%)</span><b>${tk(l.fee)}</b></div><div class="ls"><span>Receivable</span><b>${tk(l.recv)}</b></div><div class="ls"><span>${esc(l.method)}</span><b>${dest}</b></div>${l.status==='rejected'&&l.reason?`<div class="note">Reason: ${esc(l.reason)}</div>`:''}${info}${admin&&l.reminded?`<div class="note">Reminder SMS sent ${new Date(l.reminded).toLocaleDateString()}</div>`:''}${acts}${!admin&&l.status==='approved'?`<div class="row"><button class="btn g sm" data-ics="${esc(l.id)}">📅 Add due date to calendar</button></div>`:''}</div>`}
+function loanTxt(l,u,kind){const bank=l.method==='Bank NPSB',st=l.status==='approved'?lstate(l):null;
+ const head=kind==='ok'?'Your loan has been APPROVED':kind==='no'?'Your loan request was REJECTED':kind==='rem'?'Monthly loan reminder (25th)':'Loan request received';
+ return head+'\n\nName: '+(u.name||'')+'\nPhone: '+(u.phone||'')+'\nEmail: '+(u.email||'')+'\nLoan ID: '+l.id+'\n\nLoan amount: BDT '+l.amount+'\nProcessing fee (1%): BDT '+l.fee+'\nYou receive: BDT '+l.recv+'\nReceive via: '+l.method+'\n'+(bank?'Bank: '+(l.bank||'')+'\nA/C Name: '+(l.holder||'')+'\nA/C No: '+l.acc+(l.routing?'\nRouting: '+l.routing:''):'Number: '+l.acc)
+ +'\n\nStatus: '+(kind==='rem'?'Outstanding: BDT '+lstate(l).rem+'. Interest-free for 14 days after taking the loan, then 5% (7 days), 10% (7 days), then 14%.':kind==='no'?'Rejected'+(l.reason?'\nReason: '+l.reason:''):kind==='ok'&&l.plan==='inst'?'Approved on '+new Date(l.approvedAt).toLocaleDateString()+'\nPlan: '+l.n+' installments of about BDT '+Math.round(st.due/l.n*100)/100+' every 30 days (10% interest included). Total payable: BDT '+st.due:kind==='ok'?'Approved on '+new Date(l.approvedAt).toLocaleDateString()+'\nInterest-free until: '+new Date(st.free).toLocaleDateString()+' (14 days)\nThen 5% for 7 days, 10% for the next 7 days, and 14% after that.':'Pending admin approval\nAfter approval: 30 days interest-free, then 10% interest.')}
+async function loanMail(l,u,kind,toAdmin,rq){const E=CFG.EMAILJS;if(!E.service||!E.key)return 'EmailJS not set up';const rp=kind==='rep',tpl=E.loanTemplate||E.payTemplate||E.template,txt=rp?'Loan repayment submitted\n\nName: '+(u.name||'')+'\nPhone: '+(u.phone||'')+'\nEmail: '+(u.email||'')+'\nLoan ID: '+l.id+'\nLoan amount: BDT '+l.amount+'\n\nRepayment amount: BDT '+rq.amount+'\nBank reference: '+rq.ref+'\nSubmitted: '+new Date(rq.ts).toLocaleString()+'\nRemaining before this payment: BDT '+lstate(l).rem+'\n\nStatus: Pending admin approval':loanTxt(l,u,kind),subj=rp?'dbank loan repayment - BDT '+rq.amount:kind==='rem'?'dbank loan reminder - BDT '+lstate(l).rem+' outstanding':kind==='no'?'dbank loan rejected - BDT '+l.amount:kind==='ok'?'dbank loan approved - BDT '+l.amount:'dbank loan request - BDT '+l.amount,when=new Date((rp?rq:l).ts).toLocaleString(),amt=rp?rq.amount:l.amount,ref=rp?rq.ref:l.id;
+ const send=to=>fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id:E.service,template_id:tpl,user_id:E.key,template_params:{to_email:to,email:to,user_email:to,to:to,recipient:to,reply_to:to,name:u.name||'',user_name:u.name||'',user_phone:u.phone||'',user_mail:u.email||'',amount:amt,trx:ref,trx_id:ref,method:l.method,time:when,date:new Date(when).toLocaleDateString(),receipt_id:ref,status:kind==='ok'?'Approved':kind==='no'?'Rejected':'Pending',subject:subj,message:txt,code:ref,otp:ref,passcode:ref}})}).then(async r=>{if(!r.ok)throw new Error('Email failed ('+r.status+'): '+(await r.text()).slice(0,80));return true});
+ const r=await Promise.allSettled([...(u.email?[send(u.email)]:[]),...(toAdmin?[send(CFG.ADMIN_EMAIL)]:[])]);const bad=r.find(x=>x.status==='rejected');return bad?String(bad.reason.message||bad.reason):''}
+async function fillLoan(){const me=localStorage.getItem('dp_session'),all=await loans(),L=await getLim(),lim=limOf(L,me),av=Math.max(0,lim-usedOf(all,me)),a=Object.values(all).filter(l=>l.uid===me).sort((x,y)=>y.ts-x.ts);const out=Object.values(all).filter(l=>l.uid===me&&l.status==='approved').reduce((t,l)=>t+lstate(l).rem,0);$('lim1').textContent=tk(lim);$('lim2').textContent=tk(av);const cr=credit(me,all);$('lcs').textContent=cr.sc;$('lti').textContent=cr.tier+(cr.nx?' · '+cr.nx+' more repaid for '+cr.nn:'');$('lim3').textContent=tk(out);window._bal={lim,av:window._wb||0,out,la:av};renderBal();
+ $('lh').innerHTML=a.map(l=>lcard(l)).join('')||'<p class="hi">'+T('No loans yet')+'</p>';applyLang()}
+function lcalcUI(){const a=parseFloat($('la').value)||0,c=lcalc(a);$('c1').textContent=tk(a);$('c2').textContent=tk(c.fee);$('c3').textContent=tk(c.recv);const fd=new Date(Date.now()+14*DAY).toLocaleDateString();const pl=$('lpl').value;$('lcl').textContent=a>0&&pl!=='full'?'Installments: '+pl+' x '+tk(Math.round(a*(1+RATE)/pl*100)/100)+' every 30 days. Total '+tk(Math.round(a*(1+RATE)*100)/100)+' (10% interest included).':a>0?'If approved today: repay '+tk(a)+' by '+fd+' (interest-free). Then 5% for 7 days, 10% for 7 days, then 14%.':''}
+function lmethUI(){const b=$('lm').value==='Bank NPSB';$('lbk').style.display=b?'':'none';$('ln').placeholder=b?'Account number':$('lm').value+' number';$('ln').maxLength=b?20:11;$('ln').value=''}
+$('la').oninput=lcalcUI;$('lpl').onchange=lcalcUI;$('lm').onchange=lmethUI;
+$('lb').onclick=async()=>{const amount=Math.round(parseFloat($('la').value)*100)/100,method='Wallet',bank=false;
+ if(!(amount>0))return err('Enter a valid loan amount');if(!$('lag').checked)return err('Please accept the loan terms');
+ let acc=$('ln').value.trim(),extra={};
+ if(bank){if(!/^\d{6,20}$/.test(acc))return err('Enter a valid account number');const bn=$('lbn').value.trim(),hd=$('lbh').value.trim();if(!bn)return err('Enter bank name');if(!hd)return err('Enter account holder name');extra={bank:bn,holder:hd,routing:$('lbr').value.trim()}}
+ else{acc='wallet'}
+ busy($('lb'),true);
+ try{const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me]||{},all=await loans(),L=await getLim(),lim=limOf(L,me),av=lim-usedOf(all,me);
+  if((await db.get('blocked',{}))[me])throw new Error('Your account is blocked from taking loans');
+  if(amount>av)throw new Error(av>0?'Loan limit exceeded. You can apply up to '+tk(av):'Loan limit reached. No amount available');
+  const c=lcalc(amount),id='l'+Date.now();
+  const l={id,uid:me,amount,fee:c.fee,recv:c.recv,method,acc,...extra,plan:$('lpl').value==='full'?'full':'inst',n:$('lpl').value==='full'?0:+$('lpl').value,status:'approved',approvedAt:Date.now(),ts:Date.now()};all[id]=l;await db.set('loans',all);const tx=await txns();tx['t'+id]={id:'t'+id,uid:me,type:'loan',amount:l.amount,fee:l.fee,net:l.recv,method:'Loan',ref:id,status:'done',ts:Date.now()};await db.set('txns',tx);txMail(me,tx['t'+id],'Loan added to your wallet');
+  $('la').value=$('ln').value=$('lbn').value=$('lbh').value=$('lbr').value='';lcalcUI();await fillLoan();
+  const mw=await loanMail(l,u,'ok',true);
+  fillWal();err(mw?'Loan added to wallet, but email not sent: '+mw:'Loan added to your wallet. Email sent',!mw)}
+ catch(e){err(e.message)}busy($('lb'),false)};
+async function adminLoans(){const us=await db.get('users',{}),all=await loans(),L=await getLim(),BK=await db.get('blocked',{}),a=Object.values(all).sort((x,y)=>y.ts-x.ts);
+ $('gl').value=L.def;$('ulu').innerHTML=Object.entries(us).map(([k,u])=>`<option value="${esc(k)}">${esc(u.name)} · ${esc(u.phone)}</option>`).join('');
+ $('ulv').innerHTML=Object.entries(us).map(([k,u])=>`${BK[k]?'🚫 ':''}${esc(u.name)}: ${tk(limOf(L,k))}${L.usr[k]!=null&&L.usr[k]!==''?' (custom)':' (default)'} · used ${tk(usedOf(all,k))}`).join('<br>')||'No users yet';
+ const ap=a.filter(l=>l.status==='approved'),ok=a.filter(l=>l.status==='approved'||l.status==='repaid'),sm=(x,f)=>x.reduce((t,l)=>t+f(l),0);
+ $('arpt').innerHTML=[['Total loans',a.length],['Pending',a.filter(l=>l.status==='pending').length],['Disbursed',tk(sm(ok,l=>l.recv))],['Outstanding',tk(sm(ap,l=>lstate(l).rem))],['Collected',tk(sm(a,l=>l.paid||0))],['Fee income',tk(sm(ok,l=>l.fee))],['Overdue loans',ap.filter(l=>lstate(l).over).length]].map(x=>`<div class="ls"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+ $('alg').innerHTML=(await db.get('logs',[])).slice(0,20).map(g=>new Date(g.ts).toLocaleString()+' · '+esc(g.t)).join('<br>')||'No activity yet';
+ $('aln').innerHTML=a.filter(l=>{const q=($('lsf').value||'').toLowerCase().trim(),u=us[l.uid]||{};return !q||[u.name,u.phone,l.status,l.method,l.id,l.status==='approved'&&lstate(l).over?'overdue':''].join(' ').toLowerCase().includes(q)}).map(l=>lcard(l,1,us[l.uid])).join('')||'<p class="hi">'+T('No loans yet')+'</p>'}
+$('gls').onclick=async()=>{const v=parseFloat($('gl').value);if(!(v>=0))return err('Enter a valid limit');try{await db.set('loanDefault',v);await adminLoans();err('Default limit saved',1)}catch(e){err(e.message)}};
+$('uls').onclick=async()=>{const k=$('ulu').value,raw=$('ull').value.trim();if(!k)return err('Select a user');if(raw!==''&&!(parseFloat(raw)>=0))return err('Enter a valid limit');
+ try{const m=await db.get('loanLimits',{});if(raw==='')delete m[k];else m[k]=parseFloat(raw);await db.set('loanLimits',m);$('ull').value='';await adminLoans();err('User limit saved',1)}catch(e){err(e.message)}};
+$('aln').onclick=async e=>{const b=e.target.closest('button');if(!b)return;try{const all=await loans(),l=all[b.dataset.i];if(!l)return;
+ if(b.dataset.a==='lok'&&l.status==='pending'){l.status='approved';l.approvedAt=Date.now();await db.set('loans',all);addLog('Approved loan '+l.id+' BDT '+l.amount);await adminLoans();const us=await db.get('users',{}),mw=await loanMail(l,us[l.uid]||{},'ok',false);err(mw?'Approved, but email not sent: '+mw:'Approved. Email sent to user',!mw);return}
+ else if(b.dataset.a==='lno'&&l.status==='pending'){l.reason=(prompt('Reject reason (user will see it):','')||'').trim();l.status='rejected';await db.set('loans',all);await adminLoans();addLog('Rejected loan '+l.id+' BDT '+l.amount);const us=await db.get('users',{}),mw=await loanMail(l,us[l.uid]||{},'no',false);err(mw?'Rejected, but email not sent: '+mw:'Rejected. Email sent to user',!mw);return}
+ else if(b.dataset.a==='lpd'&&l.status==='approved'){l.status='repaid';l.repaidAt=Date.now()}
+ else return;
+ await db.set('loans',all);await adminLoans()}catch(x){err(x.message)}};
+
+/* ===== Repayment & reminders ===== */
+const REMIND_DAYS=25;
+const repays=()=>db.get('repays',{}),getRA=()=>db.get('repayAcc',null);
+const rtxt=a=>a&&a.acc?'Bank: '+(a.bank||'')+', A/C Name: '+(a.holder||'')+', A/C No: '+a.acc+(a.branch?', Branch: '+a.branch:'')+(a.routing?', Routing: '+a.routing:''):'';
+const rstl={pending:'<span class="bdg p">⏳ Pending</span>',approved:'<span class="bdg a">✅ Approved</span>',rejected:'<span class="bdg r">❌ Rejected</span>'};
+async function fillRepay(){const me=localStorage.getItem('dp_session'),[all,rp,a]=await Promise.all([loans(),repays(),getRA()]);
+ $('rpc').innerHTML=a&&a.acc?`<div class="mc"><b>${esc(a.bank||'Bank')}</b><div class="n">${esc(a.acc)}</div><small>${esc(a.holder||'')}${a.branch?' · '+esc(a.branch):''}${a.routing?' · RT '+esc(a.routing):''}</small>${a.note?`<small>${esc(a.note)}</small>`:''}<div class="row"><button class="btn g sm" data-a="rcopy">Copy number</button></div></div>`:'<p class="sub">Repayment account not set yet</p>';
+ const mine=Object.values(all).filter(l=>l.uid===me&&l.status==='approved').sort((x,y)=>x.ts-y.ts),prev=$('rl').value;
+ $('rl').innerHTML=mine.length?mine.map(l=>`<option value="${esc(l.id)}">${tk(l.amount)} · ${new Date(l.approvedAt).toLocaleDateString()} · due ${tk(lstate(l).rem)}</option>`).join(''):'<option value="">No active loan</option>';
+ if(prev&&mine.some(l=>l.id===prev))$('rl').value=prev;
+ const rs=Object.values(rp).filter(r=>r.uid===me).sort((x,y)=>y.ts-x.ts);
+ $('rh').innerHTML=rs.map(r=>`${new Date(r.ts).toLocaleDateString()} · ${tk(r.amount)} · ${esc(r.ref)} · ${rstl[r.status]||esc(r.status)}${r.status==='approved'?` <button class="btn g sm" data-rc="${esc(r.id)}">Receipt</button>`:''}`).join('<br>')||'No repayments yet';applyLang()}
+$('rpc').onclick=async e=>{const b=e.target.closest('button');if(!b||b.dataset.a!=='rcopy')return;const a=await getRA();a&&navigator.clipboard.writeText(a.acc).then(()=>err('Number copied',1)).catch(()=>err(a.acc,1))};
+$('rl').onchange=async()=>{const l=(await loans())[$('rl').value];$('ra').value=l?lstate(l).rem:''};
+$('rb').onclick=async()=>{const lid=$('rl').value,amount=Math.round(parseFloat($('ra').value)*100)/100,ref=$('rr').value.trim().toUpperCase();
+ if(!lid)return err('No active loan to repay');if(!(amount>0))return err('Enter a valid amount');if(!/^[A-Z0-9]{6,30}$/.test(ref))return err('Enter a valid transaction ID / reference');
+ busy($('rb'),true);try{const me=localStorage.getItem('dp_session'),all=await loans(),l=all[lid],rp=await repays();
+  if(!l||l.uid!==me||l.status!=='approved')throw new Error('This loan is not active');
+  if(Object.values(rp).some(r=>r.ref===ref))throw new Error('This reference is already submitted');
+  const pend=Object.values(rp).filter(r=>r.loanId===lid&&r.status==='pending').reduce((t,r)=>t+r.amount,0),room=Math.round((lstate(l).rem-pend)*100)/100;
+  if(room<=0)throw new Error('Your pending repayments already cover this loan');if(amount>room)throw new Error('Amount is more than due. Maximum '+tk(room));
+  const id='r'+Date.now(),r={id,loanId:lid,uid:me,amount,ref,status:'pending',ts:Date.now()};rp[id]=r;await db.set('repays',rp);
+  $('ra').value=$('rr').value='';await fillRepay();
+  const us=await db.get('users',{}),mw=await loanMail(l,us[me]||{},'rep',true,r);
+  err(mw?'Repayment submitted, but email not sent: '+mw:'Repayment submitted. Email sent. Waiting for admin approval',!mw)}catch(e){err(e.message)}busy($('rb'),false)};
+async function loadRA(){const a=(await getRA())||{};$('rab').value=a.bank||'';$('rah').value=a.holder||'';$('ran').value=a.acc||'';$('rac').value=a.branch||'';$('rar').value=a.routing||'';$('rao').value=a.note||''}
+$('ras').onclick=async()=>{const a={bank:$('rab').value.trim(),holder:$('rah').value.trim(),acc:$('ran').value.trim(),branch:$('rac').value.trim(),routing:$('rar').value.trim(),note:$('rao').value.trim()};
+ if(!a.bank||!a.holder||!a.acc)return err('Bank name, holder name and account number are required');try{await db.set('repayAcc',a);err('Repayment account saved',1)}catch(e){err(e.message)}};
+async function adminRepays(){const us=await db.get('users',{}),all=await loans(),a=Object.values(await repays()).sort((x,y)=>y.ts-x.ts);
+ $('arp').innerHTML=a.map(r=>{const u=us[r.uid]||{},l=all[r.loanId];return `<div class="mc"><b>${tk(r.amount)}</b> · ${esc(r.ref)}${rstl[r.status]||''}<small>${esc(u.name||r.uid)} · ${esc(u.phone||'')} · ${new Date(r.ts).toLocaleString()}${l?' · Loan '+tk(l.amount):''}</small>${r.status==='pending'?`<div class="row"><button class="btn g sm" data-a="rok" data-i="${esc(r.id)}">Approve</button><button class="btn d sm" data-a="rno" data-i="${esc(r.id)}">Reject</button></div>`:''}</div>`}).join('')||'<p class="hi">No repayments yet</p>'}
+$('arp').onclick=async e=>{const b=e.target.closest('button');if(!b)return;try{const rp=await repays(),r=rp[b.dataset.i];if(!r||r.status!=='pending')return;
+ if(b.dataset.a==='rok'){const all=await loans(),l=all[r.loanId];if(!l)throw new Error('Loan not found');
+  r.status='approved';r.at=Date.now();addLog('Approved repayment '+r.ref+' BDT '+r.amount);l.paid=Math.round(((l.paid||0)+r.amount)*100)/100;
+  if(l.status==='approved'&&l.paid>=lstate(l,r.ts).due-0.005){l.status='repaid';l.repaidAt=Date.now();if(r.ts<=l.approvedAt+FREE_DAYS*DAY){const LL=await getLim(),m=LL.usr,cur=limOf(LL,l.uid);m[l.uid]=Math.max(cur+100,Math.round(cur*1.1/100)*100);await db.set('loanLimits',m);addLog('Limit raised to '+m[l.uid]+' (on-time repayment)')}}
+  await db.set('repays',rp);await db.set('loans',all)}
+ else{r.status='rejected';await db.set('repays',rp)}
+ await adminRepays();await adminLoans()}catch(x){err(x.message)}};
+
+
+/* ===== Extras: log, CSV, block, receipt ===== */
+async function addLog(t){try{const g=await db.get('logs',[]);g.unshift({t,ts:Date.now()});await db.set('logs',g.slice(0,100))}catch(e){}}
+const saveTxt=(n,t)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
+const csvt=rows=>rows.map(r=>r.map(v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"').join(',')).join('\n');
+$('lsf').oninput=()=>adminLoans();
+$('csv').onclick=async()=>{try{const us=await db.get('users',{}),a=Object.values(await loans()).sort((x,y)=>y.ts-x.ts),rp=Object.values(await repays()).sort((x,y)=>y.ts-x.ts),d=new Date().toISOString().slice(0,10),nm=id=>(us[id]||{}).name||id,ph=id=>(us[id]||{}).phone||'';
+ saveTxt('loans-'+d+'.csv',csvt([['ID','Name','Phone','Amount','Fee','Receivable','Method','Account','Status','Paid','Applied','Approved']].concat(a.map(l=>[l.id,nm(l.uid),ph(l.uid),l.amount,l.fee,l.recv,l.method,l.acc,l.status,l.paid||0,new Date(l.ts).toLocaleString(),l.approvedAt?new Date(l.approvedAt).toLocaleString():'']))));
+ saveTxt('repayments-'+d+'.csv',csvt([['ID','Loan ID','Name','Phone','Amount','Reference','Status','Date']].concat(rp.map(r=>[r.id,r.loanId,nm(r.uid),ph(r.uid),r.amount,r.ref,r.status,new Date(r.ts).toLocaleString()]))))}catch(e){err(e.message)}};
+$('ubk').onclick=async()=>{const k=$('ulu').value;if(!k)return err('Select a user');try{const m=await db.get('blocked',{});if(m[k])delete m[k];else m[k]=1;await db.set('blocked',m);const us=await db.get('users',{});addLog((m[k]?'Blocked ':'Unblocked ')+((us[k]||{}).name||k));await adminLoans();err(m[k]?'User blocked from loans':'User unblocked',1)}catch(e){err(e.message)}};
+$('rh').onclick=async e=>{const b=e.target.closest('button');if(!b||!b.dataset.rc)return;try{const me=localStorage.getItem('dp_session'),rp=await repays(),r=rp[b.dataset.rc],us=await db.get('users',{}),u=us[me]||{},l=(await loans())[r.loanId]||{};
+ saveTxt('receipt-'+r.ref+'.txt','DBANK - LOAN REPAYMENT RECEIPT\n\nReceipt no: '+r.id+'\nDate: '+new Date(r.at||r.ts).toLocaleString()+'\nName: '+(u.name||'')+'\nPhone: '+(u.phone||'')+'\nLoan ID: '+r.loanId+'\nLoan amount: BDT '+(l.amount||'')+'\nPaid now: BDT '+r.amount+'\nBank reference: '+r.ref+'\nTotal paid on loan: BDT '+(l.paid||0)+'\nLoan status: '+(l.status||'')+'\n\nThank you.')}catch(x){err(x.message)}};
+
+/* ===== Theme (dark / light) ===== */
+function setTheme(t,save){const light=t==='light';document.documentElement.classList.toggle('light',light);if(save)try{localStorage.setItem('dp_theme',t)}catch(e){}
+ document.querySelectorAll('[data-thm]').forEach(b=>{b.textContent=b.dataset.thm==='i'?(light?'🌙':'☀️'):(light?'Switch to dark theme':'Switch to light theme')});
+ const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=light?'#ffffff':'#050304';applyLang()}
+document.querySelectorAll('[data-thm]').forEach(b=>b.onclick=()=>setTheme(document.documentElement.classList.contains('light')?'dark':'light',1));
+setTheme(document.documentElement.classList.contains('light')?'light':'dark');
+
+/* ===== Credit score, calendar, assistant ===== */
+function credit(uid,all){const mine=Object.values(all).filter(l=>l.uid===uid),rep=mine.filter(l=>l.status==='repaid').length,od=mine.filter(l=>l.status==='approved'&&lstate(l).over).length,thr=[1,3,5],nm=['Silver','Gold','Platinum'],i=thr.findIndex(t=>rep<t);
+ return{sc:Math.max(300,Math.min(900,500+rep*60-od*120)),tier:i<0?'Platinum':i===0?'Bronze':nm[i-1],nx:i<0?0:thr[i]-rep,nn:i<0?'':nm[i]}}
+$('lh').onclick=async e=>{const b=e.target.closest('button');if(!b||!b.dataset.ics)return;const l=(await loans())[b.dataset.ics];if(!l)return;const st=lstate(l),t=l.plan==='inst'?(st.next&&st.next.d):st.free;if(!t)return err('No due date');
+ const f=x=>{const d=new Date(x);return d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')},amt=l.plan==='inst'?st.next.a:st.rem;
+ saveTxt('loan-due.ics',['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//dbank//EN','BEGIN:VEVENT','UID:'+l.id+'@dbank','DTSTAMP:'+new Date().toISOString().replace(/[-:]|\.\d+/g,''),'DTSTART;VALUE=DATE:'+f(t),'DTEND;VALUE=DATE:'+f(t+DAY),'SUMMARY:dbank loan due - BDT '+amt,'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:Loan payment due tomorrow','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n'))};
+const aiAdd=(t,w)=>{const d=document.createElement('div');d.className='m '+w;d.textContent=t;$('aim').appendChild(d);$('aim').scrollTop=1e9};
+async function aiReply(q){const me=localStorage.getItem('dp_session'),all=await loans(),L=await getLim(),mine=Object.values(all).filter(l=>l.uid===me),act=mine.filter(l=>l.status==='approved'),t=q.toLowerCase(),has=r=>r.test(t);
+ if(has(/limit|লিমিট|সীমা/)){const lim=limOf(L,me),used=usedOf(all,me);return 'Your loan limit: '+tk(lim)+'\nIn use (pending + approved): '+tk(used)+'\nAvailable now: '+tk(Math.max(0,lim-used))}
+ if(has(/owe|due|baki|বাকি|outstanding|balance|remaining|koto/)){if(!act.length)return mine.some(l=>l.status==='pending')?'Your loan request is still pending admin approval.':'You have no active loan.';
+  return act.map(l=>{const st=lstate(l);return tk(l.amount)+' loan: remaining '+tk(st.rem)+(l.plan==='inst'?(st.next?'\nNext installment '+tk(st.next.a)+' by '+new Date(st.next.d).toLocaleDateString():''):'\n'+(st.over?'Interest-free period ended. 10% interest is added.':'Interest-free until '+new Date(st.free).toLocaleDateString()+' ('+st.left+' days left)'))+(st.over?'\n⚠ Overdue':'')}).join('\n\n')}
+ if(has(/installment|kisti|কিস্তি|emi/))return 'You can take a loan in 2 or 3 installments. Installment plans carry 10% interest, paid every 30 days.\nExample: ৳10,000 in 2 installments = ৳11,000 total, ৳5,500 each. A 1% processing fee is deducted from the amount you receive.';
+ if(has(/interest|sud|সুদ/))return 'Pay in full: 14 days interest-free, then 5% for 7 days, 10% for the next 7 days, and 14% after that.\nInstallments: 10% interest is included in the total.';
+ if(has(/fee|charge|ফি/))return 'A 1% processing fee is deducted when the loan is given. You receive the rest.';
+ if(has(/repay|pay back|payback|poriksodh|পরিশোধ|how.*pay/)){const a=await getRA();return (a&&a.acc?'Send money to:\n'+rtxt(a)+'\n\nThen open Loan > Repay loan and submit the amount with the bank reference. Admin will confirm.':'The repayment account is not set yet. Please ask the admin.')}
+ if(has(/apply|how.*loan|নিব|get a loan|take/))return 'Open the Loan tab, enter the amount, pick Pay in full or installments, choose bKash / Nagad / Bank, accept the terms and tap Apply. Admin must approve it.';
+ if(has(/status|pending|approve|reject/)){const l=mine.sort((x,y)=>y.ts-x.ts)[0];return l?'Your latest loan of '+tk(l.amount)+' is '+l.status+'.'+(l.reason?' Reason: '+l.reason:''):'You have not applied for a loan yet.'}
+ if(has(/score|tier|credit/)){const c=credit(me,all);return 'Credit score: '+c.sc+'\nTier: '+c.tier+(c.nx?'\n'+c.nx+' more fully repaid loans to reach '+c.nn+'.':'')+'\nRepaying on time raises your score and limit; overdue loans lower it.'}
+ if(has(/remind|calendar|date/))return 'On the Loan tab, tap "Add due date to calendar" on your loan. A reminder SMS is also sent 25 days after approval for pay-in-full loans.';
+ return 'I can help with: your limit, what you owe, interest, fees, installments, how to repay, how to apply, loan status and your credit score. For anything else please contact the admin.'}
+async function aiAsk(q){q=q.trim();if(!q)return;$('aiq').value='';aiAdd(q,'u');try{aiAdd(await aiReply(q),'b')}catch(e){aiAdd('Sorry, something went wrong.','b')}}
+$('aib').onclick=()=>{$('ais').classList.toggle('on');if(!$('aim').children.length){aiAdd('Hi! I am your dbank assistant. Ask me about your loan.','b');$('aic').innerHTML=['My limit','What do I owe?','Installments','How to repay','Interest rules','My credit score'].map(x=>`<button>${x}</button>`).join('')}};
+$('aix').onclick=()=>$('ais').classList.remove('on');$('aig').onclick=()=>aiAsk($('aiq').value);$('aiq').onkeydown=e=>{if(e.key==='Enter')aiAsk($('aiq').value)};$('aic').onclick=e=>{const b=e.target.closest('button');b&&aiAsk(b.textContent)};
+
+/* ===== MFS Wallet ===== */
+const txns=()=>db.get('txns',{}),wset=()=>db.get('wset',{}),FEES={bKash:.015,Nagad:.01,Bank:0};
+const isDr=t=>t.type==='withdraw'||t.type==='send'||t.type==='repay'||t.type==='cardbill'||t.type==='cardload'||t.type==='fd'||t.type==='dps',signed=t=>isDr(t)?(t.status==='rejected'?0:-t.amount):(t.status==='done'?t.net:0);
+const TL={deposit:'Deposit',withdraw:'Withdraw',loan:'Loan received',send:'Send money',recv:'Money received',repay:'Loan repayment',cardbill:'Card bill payment',cardload:'Card load',fd:'Fixed deposit',dps:'DPS installment',fdmat:'FD maturity',dpsmat:'DPS maturity',fdenc:'FD encashment',dpsenc:'DPS encashment'};
+const shrink=(f,mx)=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,mx/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.65))};i.onerror=()=>no(new Error('Not an image'));i.src=r.result};r.onerror=()=>no(new Error('Could not read file'));r.readAsDataURL(f)});
+const viewImg=src=>{const d=document.createElement('div');d.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;display:grid;place-items:center;padding:16px';d.innerHTML='<img src="'+src+'" style="max-width:100%;max-height:100%;border-radius:12px">';d.onclick=()=>d.remove();document.body.appendChild(d)};
+function wsub(x){['add','snd','wd','st'].forEach(k=>{$('s-'+k).style.display=k===x?'':'none'});document.querySelectorAll('#wtb button').forEach(b=>b.classList.toggle('on',b.dataset.s===x))}
+document.querySelectorAll('#wtb button').forEach(b=>b.onclick=()=>wsub(b.dataset.s));
+document.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{tab('wal');wsub(b.dataset.w)});
+const _t0=tab;tab=t=>{_t0(t);if(t==='wal')fillWal()};
+$('wbal').onclick=()=>$('eye').click();
+async function fillWal(){const me=localStorage.getItem('dp_session');if(!me)return;const tx=await txns(),mine=Object.values(tx).filter(t=>t.uid===me).sort((a,b)=>a.ts-b.ts);let bal=0;const rows=mine.map(t=>{bal+=signed(t);return{t,b:bal}});
+ const wb=Math.round(bal*100)/100;window._wb=wb;$('rwn').textContent='Wallet balance: '+tk(wb);window._bal=window._bal||{lim:0,av:0,out:0};window._bal.av=wb;renderBal();
+ const since=+$('msp').value?Date.now()-(+$('msp').value)*DAY:0;
+ $('mst').innerHTML=rows.filter(r=>r.t.ts>=since).reverse().map(({t,b})=>{const dr=isDr(t),v=dr?t.amount:t.net;return `<div class="mc"><b style="color:${t.status==='rejected'?'#9ca3af':dr?'#fb7185':'#34d399'}">${dr?'-':'+'}${tk(v)}</b>${rstl[t.status==='done'?'approved':t.status]||''}<small>${new Date(t.ts).toLocaleString()} · ${TL[t.type]||t.type}${t.method&&t.type!=='loan'?' · '+esc(t.method):''}${t.fee?' · charge '+tk(t.fee):''}${t.ref?' · '+esc(t.ref):''}</small><small>Balance after: ${tk(Math.max(0,b))}</small></div>`}).join('')||'<p class="hi">No transactions yet</p>';
+ await mfinfo();mfcalc();applyLang()}
+$('msp').onchange=fillWal;
+$('mdl').onclick=async()=>{const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me]||{};let bal=0;const rows=Object.values(await txns()).filter(t=>t.uid===me).sort((a,b)=>a.ts-b.ts).map(t=>{bal+=signed(t);const dr=isDr(t);return[new Date(t.ts).toLocaleString(),TL[t.type]||t.type,t.method||'',t.ref||'',dr?t.amount:'',dr?'':t.net,t.fee||0,t.status,Math.round(bal*100)/100]});
+ saveTxt('statement-'+(u.phone||'')+'.csv',csvt([['Date','Type','Method','Reference','Debit','Credit','Charge','Status','Balance']].concat(rows)))};
+async function mfinfo(){const w=await wset(),m=$('mfm').value;let h='';
+ if(m==='bKash')h=w.bkash?`<div class="mc"><small>Send to bKash</small><div class="n">${esc(w.bkash)}</div><div class="row"><button class="btn g sm" data-cp="${esc(w.bkash)}">Copy number</button></div></div>`:'<p class="sub">bKash number not set by admin yet</p>';
+ else if(m==='Nagad')h=w.nagad?`<div class="mc"><small>Send to Nagad</small><div class="n">${esc(w.nagad)}</div><div class="row"><button class="btn g sm" data-cp="${esc(w.nagad)}">Copy number</button></div></div>`:'<p class="sub">Nagad number not set by admin yet</p>';
+ else h=w.acc?`<div class="mc"><small>Bank deposit</small><b>${esc(w.bank||'')}</b><div class="n">${esc(w.acc)}</div><small>${esc(w.holder||'')}${w.branch?' · '+esc(w.branch):''}</small><div class="row"><button class="btn g sm" data-cp="${esc(w.acc)}">Copy number</button></div></div>`:'<p class="sub">Bank account not set by admin yet</p>';
+ if(w.qr)h+=`<div class="mfi"><small class="note">Bangla QR</small><img src="${w.qr}" alt="Bangla QR"></div>`;$('mfi').innerHTML=h}
+$('mfi').onclick=e=>{const b=e.target.closest('button');if(b&&b.dataset.cp)navigator.clipboard.writeText(b.dataset.cp).then(()=>err('Number copied',1)).catch(()=>err(b.dataset.cp,1))};
+function mfcalc(){const a=parseFloat($('mfa').value)||0,f=Math.round(a*FEES[$('mfm').value]*100)/100;$('mf1').textContent=tk(a);$('mf2').textContent=tk(f);$('mf3').textContent=tk(Math.round((a-f)*100)/100)}
+$('mfm').onchange=()=>{mfinfo();mfcalc()};$('mfa').oninput=mfcalc;
+let _shot='';
+$('mfs').onchange=async e=>{_shot='';$('mfp').style.display='none';const f=e.target.files[0];if(!f)return;try{_shot=await shrink(f,800);$('mfp').src=_shot;$('mfp').style.display=''}catch(x){err(x.message)}};
+$('mfb').onclick=async()=>{const m=$('mfm').value,a=Math.round(parseFloat($('mfa').value)*100)/100,ref=$('mft').value.trim().toUpperCase();
+ if(!(a>0))return err('Enter a valid amount');if(!/^[A-Z0-9]{6,30}$/.test(ref))return err('Enter a valid transaction ID / reference');busy($('mfb'),true);
+ try{const me=localStorage.getItem('dp_session'),tx=await txns();if(Object.values(tx).some(t=>t.type==='deposit'&&t.ref===ref))throw new Error('This transaction ID is already submitted');
+  const fee=Math.round(a*FEES[m]*100)/100,id='t'+Date.now();tx[id]={id,uid:me,type:'deposit',amount:a,fee,net:Math.round((a-fee)*100)/100,method:m,ref,status:'pending',ts:Date.now(),shot:!!_shot};
+  if(_shot){const sh=await db.get('shots',{});sh[id]=_shot;await db.set('shots',sh)}
+  await db.set('txns',tx);txMail(me,tx[id],'Deposit request received. Waiting for admin approval');$('mfa').value=$('mft').value=$('mfs').value='';_shot='';$('mfp').style.display='none';await fillWal();wsub('st');err('Submitted. Waiting for admin approval',1)}catch(e){err(e.message)}busy($('mfb'),false)};
+const mwUI=()=>{const m=$('mwm').value;$('mwk').style.display=m==='Bank'?'':'none';$('mwn').placeholder=m==='Bank'?'Bank account number':m+' number';$('mwn').value=''};$('mwm').onchange=mwUI;
+$('mwg').onclick=async()=>{const m=$('mwm').value,a=Math.round(parseFloat($('mwa').value)*100)/100;let n=$('mwn').value.trim();if(!(a>0))return err('Enter a valid amount');
+ let extra={};if(m==='Bank'){if(!/^\d{6,20}$/.test(n))return err('Enter a valid account number');const bk=$('mwb').value.trim(),hd=$('mwh').value.trim();if(!bk||!hd)return err('Enter bank name and account holder name');extra={bank:bk,holder:hd}}else{const p=norm(n);if(!p)return err('Enter a valid '+m+' number');n=p.replace('+88','')}
+ busy($('mwg'),true);try{const me=localStorage.getItem('dp_session'),tx=await txns(),mine=Object.values(tx).filter(t=>t.uid===me);let bal=0;mine.forEach(t=>bal+=signed(t));if(a>Math.round(bal*100)/100)throw new Error('Not enough wallet balance');
+  const id='t'+Date.now();tx[id]={id,uid:me,type:'withdraw',amount:a,fee:0,net:a,method:m,ref:n,...extra,status:'pending',ts:Date.now()};await db.set('txns',tx);txMail(me,tx[id],'Withdraw request received. The amount is held from your wallet');$('mwa').value=$('mwn').value='';await fillWal();wsub('st');err('Withdraw requested. Waiting for admin',1)}catch(e){err(e.message)}busy($('mwg'),false)};
+
+/* admin: wallet accounts, requests, admin account */
+let _qr=null;
+$('as_q').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{_qr=await shrink(f,700);$('as_p').src=_qr;$('as_p').style.display=''}catch(x){err(x.message)}};
+$('as_s').onclick=async()=>{try{const w=await wset();Object.assign(w,{bkash:$('as_b').value.trim(),nagad:$('as_n').value.trim(),bank:$('as_k').value.trim(),holder:$('as_h').value.trim(),acc:$('as_a').value.trim(),branch:$('as_r').value.trim()});if(_qr)w.qr=_qr;await db.set('wset',w);_qr=null;addLog('Wallet accounts updated');err('Wallet accounts saved',1)}catch(e){err(e.message)}};
+async function adminWal(){const us=await db.get('users',{}),a=Object.values(await txns()).filter(t=>t.type==='deposit'||t.type==='withdraw').sort((x,y)=>(x.status==='pending'?0:1)-(y.status==='pending'?0:1)||y.ts-x.ts).slice(0,60);
+ $('aw').innerHTML=a.map(t=>{const u=us[t.uid]||{},dr=t.type==='withdraw',bank=t.bank?` · ${esc(t.bank)} · ${esc(t.holder||'')}`:'';return `<div class="mc"><b>${tk(t.amount)}</b> ${TL[t.type]} · ${esc(t.method)}${rstl[t.status==='done'?'approved':t.status]||''}<small>${esc(u.name||t.uid)} · ${esc(u.phone||'')} · ${new Date(t.ts).toLocaleString()}</small><small>${dr?'Send to: '+esc(t.ref)+bank:'Ref: '+esc(t.ref)+' · charge '+tk(t.fee)+' · credit '+tk(t.net)}</small>${t.shot?`<div class="row"><button class="btn g sm" data-v="${esc(t.id)}">View screenshot</button></div>`:''}${t.status==='pending'?`<div class="row"><button class="btn g sm" data-a="wok" data-i="${esc(t.id)}">${dr?'Mark paid':'Approve'}</button><button class="btn d sm" data-a="wno" data-i="${esc(t.id)}">Reject</button></div>`:''}</div>`}).join('')||'<p class="hi">No wallet requests</p>'}
+$('aw').onclick=async e=>{const b=e.target.closest('button');if(!b)return;try{if(b.dataset.v){const sh=await db.get('shots',{});return sh[b.dataset.v]&&viewImg(sh[b.dataset.v])}
+ const tx=await txns(),t=tx[b.dataset.i];if(!t||t.status!=='pending')return;t.status=b.dataset.a==='wok'?'done':'rejected';await db.set('txns',tx);txMail(t.uid,t,t.status==='done'?(t.type==='deposit'?'Deposit successful. Wallet credited':'Withdraw completed'):(t.type==='deposit'?'Deposit request rejected':'Withdraw rejected. The amount is back in your wallet'));addLog((t.status==='done'?'Approved ':'Rejected ')+t.type+' '+tk(t.amount)+' ('+t.ref+')');await adminWal()}catch(x){err(x.message)}};
+async function loadAdminWal(){const w=await wset(),c=await db.get('adminCfg',{});$('as_b').value=w.bkash||'';$('as_n').value=w.nagad||'';$('as_k').value=w.bank||'';$('as_h').value=w.holder||'';$('as_a').value=w.acc||'';$('as_r').value=w.branch||'';if(w.qr){$('as_p').src=w.qr;$('as_p').style.display=''}
+ $('aa_ph').value=c.phone||'';$('aa_em').value=c.email||CFG.ADMIN_EMAIL||'';await adminWal();await loadAdminCry();await loadAdminSav()}
+$('aa_p').onclick=async()=>{try{const c=await db.get('adminCfg',{}),pw=$('aa_n').value;if(await sha('dpay-admin:'+$('aa_c').value)!==(c.hash||CFG.ADMIN_HASH))return err('Current password is wrong');if(pw.length<6)return err('New password needs 6+ characters');c.hash=await sha('dpay-admin:'+pw);await db.set('adminCfg',c);$('aa_c').value=$('aa_n').value='';addLog('Admin password changed');err('Admin password changed',1)}catch(e){err(e.message)}};
+$('aa_s').onclick=async()=>{try{const c=await db.get('adminCfg',{}),ph=$('aa_ph').value.trim(),em=$('aa_em').value.trim().toLowerCase();if(ph&&!norm(ph))return err('Enter a valid phone number');if(em&&!/^\S+@\S+\.\S+$/.test(em))return err('Enter a valid email');c.phone=ph?norm(ph):'';c.email=em;await db.set('adminCfg',c);if(em)CFG.ADMIN_EMAIL=em;addLog('Admin phone/email changed');err('Admin phone and email saved',1)}catch(e){err(e.message)}};
+$('afp').onclick=async()=>{try{const c=await db.get('adminCfg',{});pend={mode:'areset',user:{name:'Admin',phone:c.phone||'',email:c.email||CFG.ADMIN_EMAIL}};await startOtp()}catch(e){err(e.message)}};
+db.get('adminCfg',{}).then(c=>{if(c.email)CFG.ADMIN_EMAIL=c.email}).catch(()=>{});
+
+/* ===== Transaction emails + Send money ===== */
+async function txMail(uid,t,head){try{const E=CFG.EMAILJS;if(!E.service||!E.key)return;const us=await db.get('users',{}),u=us[uid];if(!u||!u.email)return;let bal=0;Object.values(await txns()).filter(x=>x.uid===uid).forEach(x=>bal+=signed(x));bal=Math.round(bal*100)/100;
+ const dr=isDr(t),txt=head+'\n\nTransaction ID: '+t.id+'\nDate: '+new Date().toLocaleString()+'\nType: '+(TL[t.type]||t.type)+(t.method&&t.type!=='loan'?' ('+t.method+')':'')+'\n'+(dr?'Debit':'Credit')+': BDT '+(dr?t.amount:t.net)+(t.fee?'\nCharge: BDT '+t.fee:'')+(t.ref?'\nReference: '+t.ref:'')+'\nStatus: '+(t.status==='done'?'Completed':t.status)+'\n\nAvailable balance: BDT '+bal+'\n\nIf you did not make this transaction, contact support immediately.',to=u.email,subj='dbank - '+head;
+ await fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id:E.service,template_id:E.loanTemplate||E.payTemplate||E.template,user_id:E.key,template_params:{to_email:to,email:to,user_email:to,to:to,recipient:to,reply_to:to,name:u.name||'',user_name:u.name||'',user_phone:u.phone||'',amount:dr?t.amount:t.net,trx:t.id,trx_id:t.id,method:t.method||'',time:new Date().toLocaleString(),date:new Date().toLocaleDateString(),receipt_id:t.id,status:t.status==='done'?'Completed':t.status,subject:subj,message:txt,code:t.id,otp:t.id,passcode:t.id}})})}catch(e){}}
+$('msb').onclick=async()=>{const p=norm($('msn').value),a=Math.round(parseFloat($('msa').value)*100)/100,note=$('msr').value.trim();if(!p)return err('Enter a valid receiver phone number');if(!(a>0))return err('Enter a valid amount');busy($('msb'),true);
+ try{const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me]||{},rec=Object.values(us).find(x=>x.phone===p);if(!rec)throw new Error('No dbank account found for this number');if(rec.phone===u.phone)throw new Error('You cannot send money to yourself');
+  const tx=await txns();let bal=0;Object.values(tx).filter(t=>t.uid===me).forEach(t=>bal+=signed(t));if(a>Math.round(bal*100)/100)throw new Error('Not enough wallet balance');
+  if(!confirm('Send '+tk(a)+' to '+rec.name+' ('+p.replace('+88','')+')?'))return busy($('msb'),false);
+  const rid=uid(rec.phone),ts=Date.now(),id='TX'+ts,a1={id:id+'S',uid:me,type:'send',amount:a,fee:0,net:a,method:'Wallet',ref:p.replace('+88','')+(note?' · '+note:''),status:'done',ts},a2={id:id+'R',uid:rid,type:'recv',amount:a,fee:0,net:a,method:'Wallet',ref:(u.phone||'').replace('+88','')+(note?' · '+note:''),status:'done',ts};
+  tx[a1.id]=a1;tx[a2.id]=a2;await db.set('txns',tx);$('msn').value=$('msa').value=$('msr').value='';await fillWal();wsub('st');err('Sent '+tk(a)+' to '+rec.name,1);
+  txMail(me,a1,'Money sent to '+rec.name);txMail(rid,a2,'Money received from '+(u.name||'a user'))}catch(e){err(e.message)}busy($('msb'),false)};
+/* 25-day reminder SMS: runs whenever admin panel / user app is open */
+async function checkRem(onlyUid){let sent=0;const now=Date.now(),first=await loans(),ym=new Date().getFullYear()+'-'+(new Date().getMonth()+1);
+ for(const id of Object.keys(first)){const l0=first[id];if(l0.status!=='approved'||l0.remMonth===ym||(onlyUid&&l0.uid!==onlyUid)||new Date().getDate()<25)continue;
+  const fresh=await loans(),l=fresh[id];if(!l||l.status!=='approved'||l.remMonth===ym)continue;
+  const us=await db.get('users',{}),u=us[l.uid];if(!u||!u.phone)continue;
+  l.reminded=Date.now();l.remMonth=ym;await db.set('loans',fresh);
+  try{const st=lstate(l),a=await getRA(),acc=rtxt(a);
+   const msg='dbank monthly loan reminder (25th): Your loan of BDT '+l.amount+' has BDT '+st.rem+' outstanding. 14 days interest-free after taking the loan, then 5% (7 days), 10% (7 days), then 14%. Please repay soon.'+(acc?' Repay to: '+acc:'');const rr=await Promise.allSettled([tb(u.phone,msg),loanMail(l,u,'rem',false)]);if(rr[0].status==='rejected'&&(rr[1].status==='rejected'||rr[1].value))throw new Error('fail');sent++}
+  catch(e){const again=await loans();if(again[id]){delete again[id].reminded;delete again[id].remMonth;await db.set('loans',again)}}}
+ return sent}
+$('rmb').onclick=async()=>{busy($('rmb'),true);$('rmr').textContent='Checking…';try{const n=await checkRem();$('rmr').textContent=n?n+' reminder SMS sent':'No reminders due';await adminLoans()}catch(e){$('rmr').textContent=e.message}busy($('rmb'),false)};
+setInterval(()=>{if(document.visibilityState!=='visible')return;const me=localStorage.getItem('dp_session');
+ if(sessionStorage.getItem('dp_admin'))checkRem().then(n=>n&&adminLoans()).catch(()=>{});else if(me)checkRem(me).then(n=>n&&fillLoan()).catch(()=>{})},600000);
+/* ===== dbank UI ===== */
+const I={save:'<path d="M12 3v18M17 7H9.5a3 3 0 000 6h5a3 3 0 010 6H6"/>',card:'<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18M7 15h4"/>',home:'<path d="M4 11l8-7 8 7v9a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1z"/>',pay:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15l6-6M10 9h5v5"/>',hist:'<path d="M4 12a8 8 0 108-8M4 4v5h5M12 8v4l3 2"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',bell:'<path d="M6 17v-6a6 6 0 0112 0v6l2 2H4zM10 21h4"/>',copy:'<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/>',dl:'<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',rcpt:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/>',loan:'<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v.01M18 15v.01"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'};
+document.querySelectorAll('[data-ic]').forEach(e=>e.innerHTML='<svg viewBox="0 0 24 24">'+I[e.dataset.ic]+'</svg>');
+$('sb').onclick=$('va').onclick=()=>tab('pay');$('bb').onclick=()=>err('No new notifications',1);$('lg3').onclick=togLang;
+const SL=[['Pay anyone, anywhere','Pay with bKash or any bank app and send money in seconds.'],['Submit your TrxID','After paying, send the transaction ID so we can confirm your payment.'],['Safe & simple','Never share your OTP with anyone. We will never ask for it.']];let si=0;
+function slide(){const p=$('promo');p.classList.remove('s');void p.offsetWidth;$('pt').textContent=T(SL[si][0]);$('pd').textContent=SL[si][1];p.classList.add('s');si=(si+1)%SL.length}
+slide();setInterval(slide,4500);
+
+/* ===== OTP for every transaction ===== */
+let txTab='home';
+async function txGate(fn){const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me];if(!u)return show('auth');
+ const a=document.querySelector('.bn button.on');txTab=a?a.dataset.t:'home';pend={mode:'tx',user:u,run:fn};await startOtp()}
+const vPay=()=>{const a=parseFloat($('pa').value),x=$('px').value.trim().toUpperCase();if(!(a>0))return 'Enter a valid amount';if(!/^[A-Z0-9]{6,20}$/.test(x))return 'Enter a valid TrxID';return ''};
+const vLoan=()=>{const a=parseFloat($('la').value);return a>0?'':'Enter a valid loan amount'};
+const vRep=()=>{if(!$('rl').value)return 'No active loan to repay';if(!(parseFloat($('ra').value)>0))return 'Enter a valid amount';if(!/^[A-Z0-9]{6,30}$/.test($('rr').value.trim().toUpperCase()))return 'Enter a valid transaction ID / reference';return ''};
+[['pg',vPay],['lb',vLoan],['rb',vRep]].forEach(([id,v])=>{const orig=$(id).onclick;$(id).onclick=()=>{const e=v();if(e)return err(e);txGate(()=>orig.call($(id)))}});
+
+/* ===== PIN + biometric ===== */
+const b64=b=>btoa(String.fromCharCode(...new Uint8Array(b))),unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const bioOK=()=>!!(window.PublicKeyCredential&&navigator.credentials&&window.isSecureContext);
+const bioMsg=e=>e&&e.name==='NotAllowedError'?'Biometric cancelled':'Biometric not available here (needs https + fingerprint/face unlock)';
+async function bioReg(u,me){const c=await navigator.credentials.create({publicKey:{challenge:crypto.getRandomValues(new Uint8Array(32)),rp:{name:'dbank'},user:{id:new TextEncoder().encode(me),name:u.phone,displayName:u.name||u.phone},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required'},timeout:60000}});localStorage.setItem('dp_bio_'+me,b64(c.rawId))}
+async function bioAsk(me){await navigator.credentials.get({publicKey:{challenge:crypto.getRandomValues(new Uint8Array(32)),allowCredentials:[{type:'public-key',id:unb64(localStorage.getItem('dp_bio_'+me))}],userVerification:'required',timeout:60000}})}
+function ql(){$('kql').style.display=localStorage.getItem('dp_pinon')?'':'none'}
+function refreshSec(){const me=localStorage.getItem('dp_session'),pin=localStorage.getItem('dp_pinon')===me,bio=!!localStorage.getItem('dp_bio_'+me);
+ $('sst').textContent=T('PIN: '+(pin?'ON':'OFF')+' · Biometric: '+(bio?'ON':'OFF'));$('spb').textContent=T(pin?'Change PIN':'Save PIN');
+ $('sbio').textContent=T(bio?'Disable fingerprint / face':'Enable fingerprint / face');$('sbio').style.display=pin?'':'none';$('srm').style.display=pin?'':'none'}
+$('spb').onclick=()=>{const a=$('sp1').value,b=$('sp2').value;if(!/^\d{4}$/.test(a))return err('PIN must be 4 digits');if(a!==b)return err('PINs do not match');
+ txGate(async()=>{try{const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me];if(!u)return;const sl=hx(crypto.getRandomValues(new Uint8Array(16)));u.pinS=sl;u.pinH=await kdf(a,sl);us[me]=u;await db.set('users',us);
+  localStorage.setItem('dp_pinon',me);$('sp1').value=$('sp2').value='';refreshSec();err('PIN saved',1)}catch(e){err(e.message)}})};
+$('srm').onclick=()=>txGate(async()=>{try{const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me];if(u){delete u.pinS;delete u.pinH;us[me]=u;await db.set('users',us)}
+ localStorage.removeItem('dp_pinon');localStorage.removeItem('dp_bio_'+me);refreshSec();err('PIN removed',1)}catch(e){err(e.message)}});
+$('sbio').onclick=async()=>{const me=localStorage.getItem('dp_session');if(localStorage.getItem('dp_bio_'+me)){localStorage.removeItem('dp_bio_'+me);refreshSec();return err('Biometric disabled',1)}
+ if(localStorage.getItem('dp_pinon')!==me)return err('Set a PIN first');if(!bioOK())return err('Biometric works only on https with fingerprint/face unlock');
+ try{const u=(await db.get('users',{}))[me];await bioReg(u,me);refreshSec();err('Biometric enabled',1)}catch(e){err(bioMsg(e))}};
+
+/* ===== Lock screen (quick login with PIN / biometric) ===== */
+let lockUid=null,lockTry=0;
+async function openLock(me){lockUid=me||localStorage.getItem('dp_pinon');const u=(await db.get('users',{}))[lockUid];
+ if(!u||!u.pinH){localStorage.removeItem('dp_pinon');return localStorage.getItem('dp_session')?home():show('auth')}
+ $('kpi').value='';show('lock');$('kbio').style.display=(bioOK()&&localStorage.getItem('dp_bio_'+lockUid))?'':'none';applyLang()}
+async function unlocked(){sessionStorage.setItem('dp_unl','1');localStorage.setItem('dp_session',lockUid);lockTry=0;await home()}
+async function pinGo(){const p=$('kpi').value;if(!/^\d{4}$/.test(p))return;busy($('kbu'),true);
+ try{const u=(await db.get('users',{}))[lockUid];if(!u||!u.pinH){localStorage.removeItem('dp_pinon');show('auth');return}
+  if(await kdf(p,u.pinS)!==u.pinH){$('kpi').value='';if(++lockTry>=5){lockTry=0;localStorage.removeItem('dp_pinon');localStorage.removeItem('dp_session');show('auth');return err('Too many wrong PINs. Login with password')}return err('Wrong PIN')}
+  await unlocked()}catch(e){err(e.message)}busy($('kbu'),false)}
+$('kpi').oninput=()=>{$('kpi').value=$('kpi').value.replace(/\D/g,'').slice(0,4);if($('kpi').value.length===4)pinGo()};
+$('kbu').onclick=()=>$('kpi').value.length===4?pinGo():err('Enter your 4-digit PIN');
+$('kbio').onclick=async()=>{try{await bioAsk(lockUid);await unlocked()}catch(e){err(bioMsg(e))}};
+$('kpw').onclick=()=>{localStorage.removeItem('dp_session');sessionStorage.removeItem('dp_unl');show('auth')};
+$('kql').onclick=()=>openLock();
+ql();
+Object.assign(BN,{'Confirm with OTP':'OTP দিয়ে নিশ্চিত করুন','Enter your PIN':'আপনার PIN দিন','Unlock':'আনলক','Use password instead':'পাসওয়ার্ড দিয়ে লগইন','Security':'নিরাপত্তা','Save PIN':'PIN সেভ করুন','Change PIN':'PIN পরিবর্তন','Remove PIN':'PIN মুছুন','Wrong PIN':'ভুল PIN','PIN saved':'PIN সেভ হয়েছে','PIN removed':'PIN মুছে গেছে','New 4-digit PIN':'নতুন ৪ সংখ্যার PIN','Confirm PIN':'PIN নিশ্চিত করুন'});
+
+/* ===== v2: slider, credit cards, wallet loan repayment ===== */
+const CC={BDT:{sym:'৳'},USD:{sym:'$'}},cards=()=>db.get('cards',{});let ccCur='BDT',ccShow=false,ccFlip=false;
+const ccm=(c,n)=>CC[c].sym+Number(n).toLocaleString('en-US',{minimumFractionDigits:c==='USD'?2:0,maximumFractionDigits:2});
+function genNum(){const r=crypto.getRandomValues(new Uint8Array(14)),d=[4,...[...r].map(x=>x%10)];let t=0;d.slice().reverse().forEach((x,i)=>{let v=x;if(i%2===0){v*=2;if(v>9)v-=9}t+=v});return d.join('')+((10-t%10)%10)}
+const fmtN=n=>n.replace(/(\d{4})(?=\d)/g,'$1 '),r2c=n=>Math.round(n*100)/100;
+/* one prepaid card per user, holds BDT + USD balances (old cards are merged into it) */
+async function myCard(){const me=localStorage.getItem('dp_session');if(!me)return null;const all=await cards(),mine=Object.values(all).filter(c=>c.uid===me);if(!mine.length)return null;
+ const k=mine[0];let ch=false;
+ if(!k.bals){k.bals={BDT:0,USD:0};if(k.cur&&typeof k.bal==='number')k.bals[k.cur]=k.bal;delete k.bal;ch=true}
+ mine.slice(1).forEach(o=>{if(o.bals){k.bals.BDT+=o.bals.BDT||0;k.bals.USD+=o.bals.USD||0}else if(o.cur&&typeof o.bal==='number')k.bals[o.cur]=(k.bals[o.cur]||0)+o.bal;delete all[o.id];ch=true});
+ if(ch)await db.set('cards',all);return k}
+const cardFlip=(k,nm)=>{const ph=!k,num=ph?'•••• •••• •••• ••••':fmtN(esc(k.num)),b=ph?{BDT:0,USD:0}:k.bals;
+ return `<div class="fc${ccFlip?' on':''}${k&&k.frozen?' fz':''}"><div class="fci"><div class="ff"><span class="fh">Tap card to flip ↻</span>${k&&k.frozen?'<i class="fzt">❄ FROZEN</i>':''}</div><div class="fb"><div class="fs"></div><div class="fn">${num}</div><div class="fr"><div><small>CARD HOLDER</small><b>${esc(ph?(nm||'YOUR NAME').toUpperCase():k.name)}</b></div><div><small>EXPIRES</small><b>${ph?'••/••':esc(k.exp)}</b></div><div><small>CVV</small><b>${ph?'•••':esc(k.cvv)}</b></div></div><div class="fbal"><span>BDT ${ccm('BDT',b.BDT||0)}</span><span>USD ${ccm('USD',b.USD||0)}</span></div></div></div></div>`};
+async function fillCards(){const me=localStorage.getItem('dp_session');if(!me)return;
+ const k=await myCard();window._card=k;const nm=((await db.get('users',{}))[me]||{}).name;
+ const rows=(a,b)=>`<div class="ls"><span>${a}</span><b>${b}</b></div>`;
+ $('ccv').innerHTML=k?cardFlip(k)+`<div class="row"><button class="btn g sm" id="ccn">Copy number</button><button class="btn g sm" id="ccf">${k.frozen?'Unfreeze':'Freeze'}</button></div><div class="mc" style="margin-top:12px">${rows('Card type','Virtual multi-currency prepaid card')}${rows('BDT balance',ccm('BDT',k.bals.BDT||0))}${rows('USD balance',ccm('USD',k.bals.USD||0))}${rows('Status',k.frozen?'❄ Frozen':'● Active')}</div>
+ <h2>Card load</h2><div class="pills" id="ccp"><button data-c="BDT" class="${ccCur==='BDT'?'on':''}">BDT card (৳)</button><button data-c="USD" class="${ccCur==='USD'?'on':''}">USD card ($)</button></div>
+ <div class="qb"><p class="note">${ccCur} balance: ${ccm(ccCur,k.bals[ccCur]||0)}. Load money from your ${ccCur==='USD'?'USD account':'MFS wallet'}.</p><input class="f" id="cba" type="number" inputmode="decimal" placeholder="Amount (${ccCur})"><div class="row" style="margin-top:0">${(ccCur==='USD'?[10,50,100]:[500,1000,5000]).map(v=>`<button class="btn g sm" data-q="${v}">+${v}</button>`).join('')}</div><button class="btn" id="cbb">Load card</button></div>
+ <h2>Pay with card</h2><div class="qb"><input class="f" id="cpm" placeholder="Merchant / payee name" maxlength="30"><input class="f" id="cpa" type="number" inputmode="decimal" placeholder="Amount (${ccCur})"><input class="f" id="cpn" placeholder="Card number" inputmode="numeric" maxlength="19" autocomplete="off"><div class="row"><input class="f" id="cpe" placeholder="MM/YY" maxlength="5" autocomplete="off"><input class="f" id="cpc" placeholder="CVV" type="password" inputmode="numeric" maxlength="3" autocomplete="off"></div><button class="btn" id="cpb">${k.frozen?'Card is frozen':'Pay now ('+ccCur+')'}</button></div>`
+ :cardFlip(null,nm)+`<div class="mc">${rows('Card type','Virtual multi-currency prepaid card')}${rows('Currencies','BDT + USD')}${rows('Load','Anytime from wallet / USD account')}${rows('Issued','Instantly')}</div><button class="btn" id="cca">Get your prepaid card</button>`;
+ const ct=Object.values(await db.get('cardtx',{})).filter(t=>t.uid===me).sort((a,b)=>b.ts-a.ts).slice(0,15);
+ if(k)$('ccv').insertAdjacentHTML('beforeend',`<h2>Card transactions</h2><div class="mc">${ct.length?ct.map(t=>`<div class="ls"><span>${t.type==='pay'?esc(t.merchant):'Card load'}<small style="display:block;opacity:.6">${new Date(t.ts).toLocaleString()}</small></span><b>${t.type==='pay'?'-':'+'}${ccm(t.cur,t.amount)}</b></div>`).join(''):'<p class="note">No card transactions yet.</p>'}</div>`);
+ $('hcc').innerHTML=k?['BDT','USD'].map(c=>`<div class="ccr"><b>${c}</b><span>•••• ${esc(k.num.slice(-4))}</span><b>${ccm(c,k.bals[c]||0)}</b></div>`).join('')+'<span class="cta">Manage →</span>':'<div class="big" style="font-size:24px">Get your card</div><small>Instant virtual prepaid card · BDT + USD</small><span class="cta">Apply now →</span>';
+ applyLang()}
+async function issueCard(){const b=$('cca');busy(b,true);try{const me=localStorage.getItem('dp_session'),us=await db.get('users',{}),u=us[me]||{},all=await cards();
+ if(Object.values(all).some(c=>c.uid===me))throw new Error('You already have a card');
+ const id='c'+Date.now(),d=new Date();d.setFullYear(d.getFullYear()+4);
+ all[id]={id,uid:me,num:genNum(),exp:String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getFullYear()).slice(2),cvv:String(100+crypto.getRandomValues(new Uint32Array(1))[0]%900),name:(u.name||'').toUpperCase().slice(0,22),bals:{BDT:0,USD:0},frozen:false,ts:Date.now()};
+ await db.set('cards',all);ccFlip=false;await fillCards();err('Prepaid card issued',1)}catch(e){err(e.message);busy(b,false)}}
+const cNum=id=>Math.round(parseFloat($(id).value)*100)/100;
+async function cardPay(){const b=$('cpb'),me=localStorage.getItem('dp_session'),k=window._card;if(!k)return;
+ const cur=ccCur,amt=cNum('cpa'),mer=$('cpm').value.trim(),num=$('cpn').value.replace(/\D/g,''),ex=$('cpe').value.trim(),cv=$('cpc').value.trim();
+ if(k.frozen)return err('Card is frozen');if(!mer)return err('Enter merchant name');if(!(amt>0))return err('Enter a valid amount');
+ if(num!==k.num||ex!==k.exp||cv!==k.cvv)return err('Card details do not match');
+ busy(b,true);try{const all=await cards(),c=all[k.id];if(!c||c.frozen)throw new Error('Card is not active');c.bals=c.bals||{BDT:0,USD:0};
+  if(amt>(c.bals[cur]||0))throw new Error('Not enough card balance. Please load your card');
+  c.bals[cur]=r2c((c.bals[cur]||0)-amt);const ct=await db.get('cardtx',{}),ts=Date.now();ct['ct'+ts]={id:'ct'+ts,uid:me,cardId:k.id,cur,type:'pay',merchant:mer.slice(0,30),amount:amt,ts};
+  await db.set('cardtx',ct);await db.set('cards',all);addLog('Card payment '+cur+' '+amt);await fillCards();err('Paid '+ccm(cur,amt)+' to '+mer,1)}catch(e){err(e.message);busy(b,false)}}
+function cardLoad(){const k=window._card,cur=ccCur,amt=cNum('cba');if(!k)return;
+ if(k.frozen)return err('Card is frozen');if(!(amt>0))return err('Enter a valid amount');
+ txGate(async()=>{const b=$('cbb');busy(b,true);try{const me=localStorage.getItem('dp_session'),all=await cards(),c=all[k.id],ts=Date.now(),ct=await db.get('cardtx',{});
+  if(!c||c.frozen)throw new Error('Card is not active');c.bals=c.bals||{BDT:0,USD:0};
+  if(cur==='USD'){const us=await db.get('usd',{});if(amt>usdSum(Object.values(us).filter(t=>t.uid===me)))throw new Error('Not enough USD account balance');
+   us['u'+ts]={id:'u'+ts,uid:me,type:'cardload',amount:amt,status:'done',ts,apAt:ts,method:'Card load'};await db.set('usd',us)}
+  else{const tx=await txns();let bal=0;Object.values(tx).filter(t=>t.uid===me).forEach(t=>bal+=signed(t));if(amt>Math.round(bal*100)/100)throw new Error('Not enough wallet balance');
+   tx['CL'+ts]={id:'CL'+ts,uid:me,type:'cardload',amount:amt,fee:0,net:amt,method:'Wallet',ref:c.id,status:'done',ts};await db.set('txns',tx);txMail(me,tx['CL'+ts],'Card load successful')}
+  c.bals[cur]=r2c((c.bals[cur]||0)+amt);ct['ct'+ts]={id:'ct'+ts,uid:me,cardId:c.id,cur,type:'load',amount:amt,ts};
+  await db.set('cards',all);await db.set('cardtx',ct);addLog('Card load '+cur+' '+amt);
+  await Promise.all([fillCards(),cur==='USD'?fillUsd():fillWal()]);err('Card loaded '+ccm(cur,amt),1)}catch(e){err(e.message);busy($('cbb'),false)}})}
+$('ccv').onclick=async e=>{const t=e.target,fc=t.closest('.fc');
+ if(fc){fc.classList.toggle('on');ccFlip=fc.classList.contains('on');return}
+ const p=t.closest('#ccp button');if(p){ccCur=p.dataset.c;return fillCards()}
+ const q=t.closest('[data-q]');if(q){const i=$('cba');if(i)i.value=q.dataset.q;return}
+ const b=t.closest('button');if(!b)return;
+ if(b.id==='cca')return issueCard();if(b.id==='cpb')return cardPay();if(b.id==='cbb')return cardLoad();
+ const k=window._card;if(!k)return;
+ if(b.id==='ccn')return navigator.clipboard.writeText(k.num).then(()=>err('Number copied',1)).catch(()=>err(k.num,1));
+ if(b.id==='ccf'){try{const all=await cards();all[k.id].frozen=!all[k.id].frozen;await db.set('cards',all);await fillCards();err(all[k.id].frozen?'Card frozen':'Card active',1)}catch(x){err(x.message)}}};
+$('mecc').onclick=()=>tab('card');
+const _t1=tab;tab=t=>{_t1(t);if(t==='card')fillCards();window.scrollTo(0,0)};
+$('sl').onclick=e=>{if(e.target.closest('#eye,#hbal'))return;const c=e.target.closest('.sc');if(c)tab(c.dataset.go)};
+{let q=0;$('sl').addEventListener('scroll',()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;const sl=$('sl'),i=Math.round(sl.scrollLeft/(sl.firstElementChild.offsetWidth+12));document.querySelectorAll('#dots i').forEach((d,j)=>d.classList.toggle('on',j===i))})},{passive:true})}
+/* loan repayment from MFS wallet */
+$('rb').onclick=()=>{const lid=$('rl').value,amount=Math.round(parseFloat($('ra').value)*100)/100;
+ if(!lid)return err('No active loan to repay');if(!(amount>0))return err('Enter a valid amount');
+ txGate(async()=>{const b=$('rb');busy(b,true);try{const me=localStorage.getItem('dp_session'),all=await loans(),l=all[lid],rp=await repays(),tx=await txns();
+  if(!l||l.uid!==me||l.status!=='approved')throw new Error('This loan is not active');
+  let bal=0;Object.values(tx).filter(t=>t.uid===me).forEach(t=>bal+=signed(t));if(amount>Math.round(bal*100)/100)throw new Error('Not enough wallet balance');
+  const pend=Object.values(rp).filter(r=>r.loanId===lid&&r.status==='pending').reduce((t,r)=>t+r.amount,0),room=Math.round((lstate(l).rem-pend)*100)/100;
+  if(room<=0)throw new Error('Your pending repayments already cover this loan');if(amount>room)throw new Error('Amount is more than due. Maximum '+tk(room));
+  const ts=Date.now(),rid='r'+ts,ref='WALLET'+ts.toString(36).toUpperCase();
+  rp[rid]={id:rid,loanId:lid,uid:me,amount,ref,status:'approved',ts,at:ts,via:'wallet'};tx['RP'+ts]={id:'RP'+ts,uid:me,type:'repay',amount,fee:0,net:amount,method:'Wallet',ref:lid,status:'done',ts};
+  l.paid=Math.round(((l.paid||0)+amount)*100)/100;
+  if(l.paid>=lstate(l,ts).due-0.005){l.status='repaid';l.repaidAt=ts;if(ts<=l.approvedAt+FREE_DAYS*DAY){const LL=await getLim(),m=LL.usr,cur=limOf(LL,l.uid);m[l.uid]=Math.max(cur+100,Math.round(cur*1.1/100)*100);await db.set('loanLimits',m);addLog('Limit raised to '+m[l.uid]+' (on-time repayment)')}}
+  await db.set('txns',tx);await db.set('repays',rp);await db.set('loans',all);addLog('Wallet repayment '+ref+' BDT '+amount);txMail(me,tx['RP'+ts],'Loan repayment from wallet successful');
+  $('ra').value='';await Promise.all([fillRepay(),fillLoan(),fillWal()]);err('Repaid '+tk(amount)+' from your wallet',1)}catch(e){err(e.message)}busy($('rb'),false)})};
+Object.assign(BN,{'Credit card':'ক্রেডিট কার্ড','Credit card (BDT / USD)':'ক্রেডিট কার্ড (BDT / USD)','MFS wallet balance':'MFS ওয়ালেট ব্যালেন্স','Loan account balance':'লোন অ্যাকাউন্ট ব্যালেন্স','Repay from wallet':'ওয়ালেট থেকে পরিশোধ','Available to borrow':'ধার নেওয়ার সুযোগ','Apply now ›':'আবেদন করুন ›','Manage ›':'ম্যানেজ ›','Show details':'বিস্তারিত দেখুন','Hide details':'লুকান','Freeze':'ফ্রিজ','Unfreeze':'আনফ্রিজ','Credit limit':'ক্রেডিট লিমিট','Available credit':'উপলব্ধ ক্রেডিট','Get your card':'আপনার কার্ড নিন','Not enough wallet balance':'ওয়ালেটে পর্যাপ্ত ব্যালেন্স নেই','Outstanding':'বকেয়া','Account':'অ্যাকাউন্ট'});
+
+/* ===== prepaid card translations ===== */
+Object.assign(BN,{'Pay with card':'কার্ড দিয়ে পেমেন্ট','Pay now':'এখনই পে করুন','Card transactions':'কার্ড লেনদেন','Card load':'কার্ড লোড','Load card':'কার্ড লোড করুন','BDT balance':'BDT ব্যালেন্স','USD balance':'USD ব্যালেন্স','Prepaid card':'প্রিপেইড কার্ড','Virtual multi-currency prepaid card':'ভার্চুয়াল মাল্টি-কারেন্সি প্রিপেইড কার্ড','Virtual prepaid card (BDT / USD)':'ভার্চুয়াল প্রিপেইড কার্ড (BDT / USD)','Get your prepaid card':'আপনার প্রিপেইড কার্ড নিন','Tap card to flip ↻':'উল্টাতে কার্ডে ট্যাপ করুন ↻','Not enough card balance. Please load your card':'কার্ডে পর্যাপ্ত ব্যালেন্স নেই। কার্ড লোড করুন','Prepaid card issued':'প্রিপেইড কার্ড ইস্যু হয়েছে','Card loaded':'কার্ড লোড হয়েছে'});
+
+/* ===== v4: crypto deposit (USDT) -> USD account with 1% flexible earn ===== */
+const USD_APR=0.01,USDT_MIN=1;
+const CH=[['ERC20','Ethereum (ERC20)',6],['TRC20','TRON (TRC20)',20],['USDT0M','Mantle Network (USDT0)',100],['BEP20','BSC (BEP20)',60],['APTOS','APTOS',1],['TON','TON',1],['USDT0P','Plasma (USDT0)',10],['SOL','SOL',200],['POLY','Polygon PoS',0]];
+$('cdm').innerHTML='<option value="UID">Bybit UID (internal transfer)</option>'+CH.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join('');
+const usdSum=(a,cut=1e15)=>Math.round(a.filter(t=>t.status==='done'&&(t.apAt||t.ts)<cut).reduce((x,t)=>x+((t.type==='cardbill'||t.type==='cardload')?-t.amount:t.amount),0)*1e4)/1e4;
+const u2=n=>'$ '+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4});
+async function fillUsd(){const me=localStorage.getItem('dp_session');if(!me)return;try{
+ const us=await db.get('usd',{}),acc=await db.get('usdacc',{}),today=Math.floor(Date.now()/864e5),mine=()=>Object.values(us).filter(t=>t.uid===me);
+ const last=acc[me]&&acc[me].last!=null?acc[me].last:today,to=Math.min(today,last+60);let ch=false;
+ for(let d=last+1;d<=to;d++){const id='e'+me+'_'+d;if(us[id])continue;const i=Math.floor(usdSum(mine(),d*864e5)*USD_APR/365*1e4)/1e4;if(i>=0.0001){us[id]={id,uid:me,type:'earn',amount:i,status:'done',ts:d*864e5+432e5,apAt:d*864e5+432e5,method:'Flexible earn 1%'};ch=true}}
+ if(ch)await db.set('usd',us);if(last!==to||acc[me]==null){acc[me]={last:to};await db.set('usdacc',acc)}
+ const b=usdSum(mine()),e=Math.round(mine().filter(t=>t.type==='earn').reduce((x,t)=>x+t.amount,0)*1e4)/1e4;
+ $('ubal').textContent=u2(b);$('uern').textContent=u2(e);$('husd').textContent=u2(b);$('hue').textContent=u2(e);
+ const L={deposit:'USDT deposit',earn:'Flexible earn',cardbill:'Card bill payment',cardload:'Card load'};
+ $('uh').innerHTML=mine().sort((x,y)=>y.ts-x.ts).slice(0,8).map(t=>`<div class="ls"><span>${L[t.type]}${t.status==='pending'?' (pending)':t.status==='rejected'?' (rejected)':''}<small style="display:block;opacity:.6">${new Date(t.ts).toLocaleDateString()}</small></span><b>${(t.type==='cardbill'||t.type==='cardload')?'-':'+'}${u2(t.amount)}</b></div>`).join('')||'<p class="note">No USD account activity yet.</p>'}catch(x){}}
+async function cdinfo(){const w=await db.get('cset',{}),k=$('cdm').value,cp=(a,l)=>`<div class="row"><button class="btn g sm" data-cp="${esc(a)}">${l}</button></div>`;let h;
+ if(k==='UID')h=w.uid?`<div class="mc"><small>Send USDT to Bybit UID</small><div class="n">${esc(w.uid)}</div><small>Bybit app → Assets → Transfer → Internal transfer. Free and instant. USDT only.</small>${cp(w.uid,'Copy UID')}</div>`:'<p class="sub">Bybit UID not set by admin yet</p>';
+ else{const c=CH.find(x=>x[0]===k),a=(w.addr||{})[k];h=a?`<div class="mc"><small>${c[1]} deposit address</small><div class="n" style="word-break:break-all;font-size:15px">${esc(a)}</div><small>Send USDT only on this network.${c[2]?' Completion: '+c[2]+' confirmation(s).':''} Minimum ${USDT_MIN} USDT.</small>${cp(a,'Copy address')}</div>`:'<p class="sub">Address for this network not set by admin yet</p>'}
+ if(w.note)h+=`<p class="note">${esc(w.note)}</p>`;$('cdi').innerHTML=h}
+$('cdm').onchange=cdinfo;$('cdi').onclick=e=>{const b=e.target.closest('button');if(b&&b.dataset.cp)navigator.clipboard.writeText(b.dataset.cp).then(()=>err('Copied',1)).catch(()=>err(b.dataset.cp,1))};
+$('dpp').onclick=e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#dpp button').forEach(x=>x.classList.toggle('on',x===b));const c=b.dataset.d==='cry';$('dloc').style.display=c?'none':'';$('dcry').style.display=c?'':'none';if(c)cdinfo()};
+let _cs='';$('cds').onchange=async e=>{_cs='';$('cdp').style.display='none';const f=e.target.files[0];if(!f)return;try{_cs=await shrink(f,800);$('cdp').src=_cs;$('cdp').style.display=''}catch(x){err(x.message)}};
+$('cdb').onclick=async()=>{const k=$('cdm').value,a=Math.round(parseFloat($('cda').value)*1e4)/1e4,ref=$('cdt').value.trim();
+ if(!(a>=USDT_MIN))return err('Minimum deposit is '+USDT_MIN+' USDT');if(!/^[A-Za-z0-9]{6,100}$/.test(ref))return err('Enter the transaction hash / Bybit transfer ID');if(!_cs)return err('Upload your payment screenshot');
+ busy($('cdb'),true);try{const me=localStorage.getItem('dp_session'),us=await db.get('usd',{});if(Object.values(us).some(t=>t.type==='deposit'&&String(t.ref).toLowerCase()===ref.toLowerCase()))throw new Error('This transaction is already submitted');
+  const id='u'+Date.now();us[id]={id,uid:me,type:'deposit',amount:a,cur:'USDT',method:k==='UID'?'Bybit UID':CH.find(x=>x[0]===k)[1],ref,fromUid:$('cdu').value.trim().slice(0,20),status:'pending',ts:Date.now(),shot:true};
+  const sh=await db.get('shots',{});sh[id]=_cs;await db.set('shots',sh);await db.set('usd',us);addLog('USDT deposit request '+a);
+  $('cda').value=$('cdt').value=$('cdu').value=$('cds').value='';_cs='';$('cdp').style.display='none';await fillUsd();err('Submitted. Waiting for admin to confirm',1)}catch(e){err(e.message)}busy($('cdb'),false)};
+const _t2=tab;tab=t=>{_t2(t);if(t==='wal')fillUsd()};
+function cardBillUsd(c,amt){if(!(amt>0))return err('Enter a valid amount');if(amt>(c.used||0))return err('Amount is more than outstanding');
+ txGate(async()=>{const b=$('cbb');busy(b,true);try{const me=localStorage.getItem('dp_session'),us=await db.get('usd',{}),all=await cards(),k=all[c.id];
+  if(amt>usdSum(Object.values(us).filter(t=>t.uid===me)))throw new Error('Not enough USD account balance');if(!k||amt>(k.used||0))throw new Error('Amount is more than outstanding');
+  const ts=Date.now(),id='u'+ts;us[id]={id,uid:me,type:'cardbill',amount:amt,status:'done',ts,apAt:ts,method:'Card bill'};k.used=Math.round(((k.used||0)-amt)*100)/100;
+  const ct=await db.get('cardtx',{});ct['ct'+ts]={id:'ct'+ts,uid:me,cardId:c.id,cur:'USD',type:'bill',amount:amt,ts};
+  await db.set('usd',us);await db.set('cards',all);await db.set('cardtx',ct);addLog('USD card bill paid '+amt);await Promise.all([fillCards(),fillUsd()]);err('Card bill paid '+ccm('USD',amt),1)}catch(e){err(e.message);busy($('cbb'),false)}})}
+/* admin */
+$('ac_a').innerHTML=CH.map(c=>`<input class="f" data-k="${c[0]}" placeholder="${c[1]} address">`).join('');
+$('ac_s').onclick=async()=>{try{const w={uid:$('ac_u').value.trim(),note:$('ac_n').value.trim(),addr:{}};document.querySelectorAll('#ac_a input').forEach(i=>{if(i.value.trim())w.addr[i.dataset.k]=i.value.trim()});await db.set('cset',w);addLog('Crypto deposit settings updated');err('Crypto settings saved',1)}catch(e){err(e.message)}};
+async function loadAdminCry(){const w=await db.get('cset',{});$('ac_u').value=w.uid||'';$('ac_n').value=w.note||'';document.querySelectorAll('#ac_a input').forEach(i=>i.value=(w.addr||{})[i.dataset.k]||'');
+ const us=await db.get('users',{}),a=Object.values(await db.get('usd',{})).filter(t=>t.type==='deposit').sort((x,y)=>(x.status==='pending'?0:1)-(y.status==='pending'?0:1)||y.ts-x.ts).slice(0,40);
+ $('acr').innerHTML=a.map(t=>{const u=us[t.uid]||{};return `<div class="mc"><b>${u2(t.amount)} USDT</b> · ${esc(t.method)}${rstl[t.status==='done'?'approved':t.status]||''}<small>${esc(u.name||t.uid)} · ${esc(u.phone||'')} · ${new Date(t.ts).toLocaleString()}</small><small>Ref: ${esc(t.ref)}${t.fromUid?' · From UID: '+esc(t.fromUid):''}</small><div class="row"><button class="btn g sm" data-v="${esc(t.id)}">View screenshot</button>${t.status==='pending'?`<button class="btn g sm" data-a="cok" data-i="${esc(t.id)}">Approve</button><button class="btn d sm" data-a="cno" data-i="${esc(t.id)}">Reject</button>`:''}</div></div>`}).join('')||'<p class="hi">No crypto deposits</p>'}
+$('acr').onclick=async e=>{const b=e.target.closest('button');if(!b)return;try{if(b.dataset.v){const sh=await db.get('shots',{});return sh[b.dataset.v]&&viewImg(sh[b.dataset.v])}
+ const us=await db.get('usd',{}),t=us[b.dataset.i];if(!t||t.status!=='pending')return;t.status=b.dataset.a==='cok'?'done':'rejected';t.apAt=Date.now();await db.set('usd',us);addLog((t.status==='done'?'Approved ':'Rejected ')+'USDT deposit '+t.amount+' ('+t.ref+')');await loadAdminCry()}catch(x){err(x.message)}};
+Object.assign(BN,{'Deposit':'জমা','Crypto (USDT)':'ক্রিপ্টো (USDT)','USD account':'USD অ্যাকাউন্ট','Submit USDT deposit':'USDT জমার আবেদন','Pay bill from USD account':'USD অ্যাকাউন্ট থেকে বিল পরিশোধ','Total earned':'মোট আয়'});
+
+/* ===== v5: Fixed deposit (FD) and DPS ===== */
+const TAX=0.15,FDM=[3,6,12,24],DPM=[12,24,36,60],DEFR={fd:{3:7,6:7.5,12:8,24:8.5},dps:{12:7,24:7.5,36:8,60:8.5}};let svk='fd',_sc=null;
+const r2=n=>Math.round(n*100)/100,addM=(ts,m)=>{const d=new Date(ts);d.setMonth(d.getMonth()+m);return d.getTime()},dt=ts=>new Date(ts).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+const fdCalc=(P,r,m)=>{const i=r2(P*r/100*m/12),t=r2(i*TAX);return{dep:P,i,t,net:r2(P+i-t)}};
+const dpsCalc=(M,r,n)=>{const i=r2(M*r/100*n*(n+1)/24),t=r2(i*TAX);return{dep:M*n,i,t,net:r2(M*n+i-t)}};
+const finalCalc=p=>{if(p.kind==='fd')return fdCalc(p.amount,p.rate,p.months);const i=r2(p.paid.reduce((x,ts)=>x+p.amount*p.rate/100*Math.max(0,p.maturity-ts)/(365.25*864e5),0)),t=r2(i*TAX),d=p.amount*p.paid.length;return{dep:d,i,t,net:r2(d+i-t)}};
+async function svcfg(){const c=await db.get('savcfg',{});return{fd:{...DEFR.fd,...(c.fd||{})},dps:{...DEFR.dps,...(c.dps||{})},minFd:c.minFd||1000,minDps:c.minDps||500,early:c.early==null?4:c.early}}
+const svRows=(a,b,bold)=>`<div class="ls${bold?' t':''}"><span>${a}</span><b>${b}</b></div>`;
+function svOpts(){const L=Object.keys(_sc[svk]).map(Number).sort((a,b)=>a-b),cur=$('svt').value;$('svt').innerHTML=L.filter(m=>_sc[svk][m]>0).map(m=>`<option value="${m}">${m} months · ${_sc[svk][m]}% p.a.</option>`).join('');if(cur)$('svt').value=cur;
+ $('sva').placeholder=svk==='fd'?'Deposit amount (৳)':'Monthly installment (৳)';$('svb').textContent=svk==='fd'?'Open FD':'Start DPS';$('svr').style.display=svk==='fd'?'':'none';svPrev()}
+function svPrev(){if(!_sc)return;const a=parseFloat($('sva').value)||0,m=+$('svt').value,r=(_sc[svk]||{})[m];if(!m||!(r>0)){$('svc').innerHTML='<p class="note">No plan available. Admin has not set a rate.</p>';return}
+ const c=svk==='fd'?fdCalc(a,r,m):dpsCalc(a,r,m),min=svk==='fd'?_sc.minFd:_sc.minDps;
+ $('svc').innerHTML=svRows(svk==='fd'?'Deposit amount':'Total deposit ('+m+' × '+tk(a)+')',tk(c.dep))+svRows('Interest rate',r+'% p.a.')+svRows('Interest earned',tk(c.i))+svRows('Tax (15% of interest)','- '+tk(c.t))+svRows('Maturity amount',tk(c.net),1)+svRows('Maturity date',dt(addM(Date.now(),m)))+`<p class="note">Minimum ${tk(min)}. Interest is simple interest.${svk==='dps'?' Estimated if every installment is paid on time.':''}</p>`}
+const svBal=async me=>{const tx=await txns();let b=0;Object.values(tx).filter(t=>t.uid===me).forEach(t=>b+=signed(t));return{tx,bal:r2(b)}};
+async function fillSav(){const me=localStorage.getItem('dp_session');if(!me)return;try{_sc=await svcfg();const sv=await db.get('sav',{}),{tx,bal}=await svBal(me),now=Date.now();let ch=false;
+ ch=await matureAll(sv,tx,me,now);
+ if(ch){await db.set('sav',sv);await db.set('txns',tx);fillWal();err('Your savings matured. The amount is added to your wallet',1)}
+ $('svw').textContent=tk(ch?(await svBal(me)).bal:bal);if(!$('svt').options.length||$('svt').dataset.k!==svk){$('svt').dataset.k=svk;svOpts()}else svPrev();
+ const L=Object.values(sv).filter(p=>p.uid===me).sort((a,b)=>b.start-a.start);
+ $('svl').innerHTML=L.map(p=>{const act=p.status==='active',c=act?(p.kind==='fd'?fdCalc(p.amount,p.rate,p.months):dpsCalc(p.amount,p.rate,p.months)):{dep:p.kind==='fd'?p.amount:p.amount*p.paid.length,i:p.i,t:p.t,net:p.net};
+  const prog=Math.min(100,Math.round((now-p.start)/(p.maturity-p.start)*100)),nd=p.kind==='dps'&&act&&p.paid.length<p.months?addM(p.start,p.paid.length):0,due=nd&&nd<=now;
+  return `<div class="mc"><b>${p.kind==='fd'?'FD':'DPS'} · ${tk(p.amount)}${p.kind==='dps'?' / month':''}</b><span class="bdg ${act?'':'m'}">${{active:'Active',matured:'Matured',renewed:'Renewed',encashed:'Encashed'}[p.status]}</span><small style="display:block;opacity:.7">A/C ${esc(p.acc||"-")} · ${p.months} months · ${p.rate}% p.a. · opened ${dt(p.start)}</small><div class="pbar"><i style="width:${act?prog:100}%"></i></div>
+  ${p.kind==='dps'?svRows('Installments paid',p.paid.length+' / '+p.months):''}${nd?svRows(due?'Installment due':'Next installment',dt(nd)):''}${svRows('Total deposit',tk(c.dep))}${svRows('Interest',tk(c.i))}${svRows('Tax (15%)','- '+tk(c.t))}${svRows(act?(p.kind==='dps'?'Maturity amount (estimated)':'Maturity amount'):(p.status==='renewed'?'Renewed amount':'Paid to wallet'),tk(c.net),1)}${svRows(act?'Maturity date':'Closed on',dt(act?p.maturity:(p.maturedAt||p.encashedAt)))}
+  ${due?`<button class="btn sm" data-p="${esc(p.id)}" style="margin-top:8px">Pay installment ${tk(p.amount)}</button>`:''}${act?`${p.kind==='fd'?`<select class="f" data-r="${esc(p.id)}">${rnOpts(p.renew)}</select>`:''}<button class="btn d sm" data-e="${esc(p.id)}" style="margin-top:8px">Encash now</button>`:''}</div>`}).join('')||'<p class="note">No FD or DPS yet.</p>';applyLang()}catch(x){}}
+$('svp').onclick=e=>{const b=e.target.closest('button');if(!b)return;svk=b.dataset.k;document.querySelectorAll('#svp button').forEach(x=>x.classList.toggle('on',x===b));$('svt').innerHTML='';fillSav()};
+$('sva').oninput=svPrev;$('svt').onchange=svPrev;
+$('svb').onclick=()=>{const k=svk,a=r2(parseFloat($('sva').value)),m=+$('svt').value,rate=(_sc[k]||{})[m],min=k==='fd'?_sc.minFd:_sc.minDps;
+ if(!(a>0))return err('Enter a valid amount');if(a<min)return err('Minimum is '+tk(min));if(!(rate>0))return err('This plan is not available');
+ txGate(async()=>{const b=$('svb');busy(b,true);try{const me=localStorage.getItem('dp_session'),{tx,bal}=await svBal(me),sv=await db.get('sav',{});if(a>bal)throw new Error('Not enough wallet balance');
+  const ts=Date.now(),id=(k==='fd'?'F':'D')+ts;sv[id]={id,uid:me,kind:k,amount:a,months:m,rate,start:ts,maturity:addM(ts,m),status:'active',paid:k==='dps'?[ts]:[],acc:genAcc(Object.values(sv),k),renew:k==='fd'?$('svr').value:'0'};
+  tx['S'+id]={id:'S'+id,uid:me,type:k,amount:a,fee:0,net:a,method:'Savings',ref:id,status:'done',ts};
+  await db.set('sav',sv);await db.set('txns',tx);addLog((k==='fd'?'FD opened ':'DPS started ')+a);sendPlanSms(me,sv[id],'open');$('sva').value='';await Promise.all([fillSav(),fillWal()]);err((k==='fd'?'FD opened':'DPS started')+'. Amount taken from your wallet',1)}catch(e){err(e.message)}busy($('svb'),false)})};
+$('svl').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.e)return encash(b.dataset.e);if(!b.dataset.p)return;const pid=b.dataset.p;
+ txGate(async()=>{busy(b,true);try{const me=localStorage.getItem('dp_session'),{tx,bal}=await svBal(me),sv=await db.get('sav',{}),p=sv[pid],ts=Date.now();
+  if(!p||p.uid!==me||p.status!=='active'||p.kind!=='dps')throw new Error('This plan is not active');if(p.paid.length>=p.months||addM(p.start,p.paid.length)>ts)throw new Error('No installment is due');if(p.amount>bal)throw new Error('Not enough wallet balance');
+  p.paid.push(ts);tx['S'+pid+'_'+p.paid.length]={id:'S'+pid+'_'+p.paid.length,uid:me,type:'dps',amount:p.amount,fee:0,net:p.amount,method:'Savings',ref:pid,status:'done',ts};
+  await db.set('sav',sv);await db.set('txns',tx);addLog('DPS installment '+p.amount);await Promise.all([fillSav(),fillWal()]);err('Installment paid',1)}catch(x){err(x.message)}})};
+$('q7').onclick=()=>tab('sav');$('mesv').onclick=()=>tab('sav');
+const _t3=tab;tab=t=>{_t3(t);if(t==='sav')fillSav()};
+/* admin */
+$('asv').innerHTML=FDM.map(m=>`<input class="f" data-s="fd" data-m="${m}" type="number" step="0.01" placeholder="FD ${m} months rate (% p.a.)">`).join('')+DPM.map(m=>`<input class="f" data-s="dps" data-m="${m}" type="number" step="0.01" placeholder="DPS ${m} months rate (% p.a.)">`).join('');
+async function loadAdminSav(){const c=await svcfg();document.querySelectorAll('#asv input').forEach(i=>i.value=c[i.dataset.s][i.dataset.m]);$('sm_f').value=c.minFd;$('sm_d').value=c.minDps;$('sm_e').value=c.early}
+$('sv_s').onclick=async()=>{try{const c={fd:{},dps:{},minFd:parseFloat($('sm_f').value)||1000,minDps:parseFloat($('sm_d').value)||500,early:isNaN(parseFloat($('sm_e').value))?4:parseFloat($('sm_e').value)};document.querySelectorAll('#asv input').forEach(i=>{const v=parseFloat(i.value);if(i.value!==''&&(isNaN(v)||v<0||v>100))throw new Error('Rate must be between 0 and 100');c[i.dataset.s][i.dataset.m]=v||0});await db.set('savcfg',c);addLog('FD/DPS rates updated');err('Savings rates saved. New rates apply to new plans only',1)}catch(e){err(e.message)}};
+Object.assign(BN,{'Savings':'সঞ্চয়','Fixed deposit (FD)':'ফিক্সড ডিপোজিট (FD)','Open FD':'FD খুলুন','Start DPS':'DPS শুরু করুন','Maturity amount':'মেয়াদপূর্তির পরিমাণ','Maturity date':'মেয়াদপূর্তির তারিখ','Interest earned':'অর্জিত সুদ','Tax (15% of interest)':'কর (সুদের ১৫%)','My savings':'আমার সঞ্চয়','Pay installment':'কিস্তি দিন'});
+
+/* ===== v6: account no, SMS, auto renewal, early encashment ===== */
+const RNL=[['0','Auto renewal: Off'],['full','Auto renew: principal + interest'],['prin','Auto renew: principal only (interest to wallet)']],rnOpts=v=>RNL.map(o=>`<option value="${o[0]}"${(v||'0')===o[0]?' selected':''}>${o[1]}</option>`).join('');
+$('svr').innerHTML=rnOpts('0');
+function genAcc(list,k){const used=new Set(list.map(x=>x.acc));let a;do{a=(k==='fd'?'FD':'DP')+[...crypto.getRandomValues(new Uint8Array(10))].map(x=>x%10).join('')}while(used.has(a));return a}
+async function queueSms(key,phone,text){try{if(!phone)return;const q=await db.get('smsq',{});if(q[key])return;q[key]={id:key,to:String(phone),text:text.slice(0,300),ts:Date.now(),status:'queued'};await db.set('smsq',q)}catch(e){}}
+async function sendPlanSms(me,p,kind,x){try{const u=(await db.get('users',{}))[me]||{},T=p.kind==='fd'?'FD':'DPS',n=v=>'BDT '+r2(v).toLocaleString('en-US');let t;
+ if(kind==='open')t=`dbank: Your ${T} account ${p.acc} is opened. ${p.kind==='fd'?'Deposit':'Monthly installment'} ${n(p.amount)}, ${p.months} months at ${p.rate}% p.a. Maturity date ${dt(p.maturity)}.`;
+ else if(kind==='renew')t=`dbank: Your ${T} ${p.acc} matured and was renewed. New ${T} account ${x.acc}, ${n(x.amount)}, ${x.months} months at ${x.rate}% p.a. Maturity date ${dt(x.maturity)}.`;
+ else if(kind==='mature')t=`dbank: Your ${T} ${p.acc} matured. ${n(x)} is added to your wallet.`;
+ else t=`dbank: Your ${T} ${p.acc} is encashed. ${n(x)} is added to your wallet.`;
+ await queueSms('s'+p.id+'_'+kind,u.phone,t);err('SMS queued to '+String(u.phone||'').replace('+88',''),1)}catch(e){}}
+async function matureAll(sv,tx,me,now){let ch=false,q=Object.values(sv).filter(p=>p.uid===me&&p.status==='active'&&p.maturity<=now),n=0;const sms=[];
+ while(q.length&&n++<30){const p=q.shift(),c=finalCalc(p);ch=true;let rn=null;
+  if(p.kind==='fd'&&p.renew&&p.renew!=='0'){const r=((_sc||await svcfg()).fd)[p.months];
+   if(r>0){const nid='R'+p.id;rn=sv[nid]||{id:nid,uid:me,kind:'fd',amount:p.renew==='full'?c.net:p.amount,months:p.months,rate:r,start:p.maturity,maturity:addM(p.maturity,p.months),status:'active',paid:[],acc:genAcc(Object.values(sv),'fd'),renew:p.renew,from:p.id};sv[nid]=rn;if(rn.status==='active'&&rn.maturity<=now)q.push(rn)}}
+  Object.assign(p,{status:rn?'renewed':'matured',i:c.i,t:c.t,net:c.net,maturedAt:now});
+  const w=rn?(p.renew==='full'?0:r2(c.net-p.amount)):c.net;
+  if(w>0){const id='M'+p.id;if(!tx[id])tx[id]={id,uid:me,type:p.kind+'mat',amount:w,fee:0,net:w,method:'Savings',ref:p.id,status:'done',ts:p.maturity}}
+  sms.push([p,rn,w])}
+ sms.forEach(([p,rn,w])=>sendPlanSms(me,p,rn?'renew':'mature',rn||w));return ch}
+const encCalc=(p,cfg,now)=>{const e=cfg.early||0,Y=365.25*864e5,D=30*864e5;const i=p.kind==='fd'?((now-p.start)<D?0:r2(p.amount*e/100*(now-p.start)/Y)):r2(p.paid.reduce((x,ts)=>x+((now-ts)<D?0:p.amount*e/100*(now-ts)/Y),0));const t=r2(i*TAX),d=p.kind==='fd'?p.amount:p.amount*p.paid.length;return{dep:d,i,t,net:r2(d+i-t)}};
+async function encash(pid){const me=localStorage.getItem('dp_session');try{const p=(await db.get('sav',{}))[pid];if(!p||p.uid!==me||p.status!=='active')return err('This plan is not active');const cfg=await svcfg(),c=encCalc(p,cfg,Date.now());
+ if(!confirm(`Encash ${p.acc} now?\nDeposit: ${tk(c.dep)}\nInterest (early rate ${cfg.early}% p.a.): ${tk(c.i)}\nTax 15%: -${tk(c.t)}\nYou get: ${tk(c.net)}\nThis plan will be closed.`))return;
+ txGate(async()=>{try{const sv=await db.get('sav',{}),tx=await txns(),q=sv[pid];if(!q||q.uid!==me||q.status!=='active')throw new Error('This plan is not active');const now=Date.now(),c2=encCalc(q,cfg,now);
+  Object.assign(q,{status:'encashed',i:c2.i,t:c2.t,net:c2.net,encashedAt:now});tx['E'+pid]={id:'E'+pid,uid:me,type:q.kind+'enc',amount:c2.net,fee:0,net:c2.net,method:'Savings',ref:pid,status:'done',ts:now};
+  await db.set('sav',sv);await db.set('txns',tx);addLog('Encashed '+q.acc);sendPlanSms(me,q,'enc',c2.net);await Promise.all([fillSav(),fillWal()]);err('Encashed. '+tk(c2.net)+' added to your wallet',1)}catch(e){err(e.message)}})}catch(e){err(e.message)}}
+$('svl').onchange=async e=>{const el=e.target.closest('select[data-r]');if(!el)return;try{const sv=await db.get('sav',{}),p=sv[el.dataset.r];if(!p||p.status!=='active')return;p.renew=el.value;await db.set('sav',sv);err(el.value==='0'?'Auto renewal off':'Auto renewal on',1)}catch(x){err(x.message)}};
+Object.assign(BN,{'Encash now':'এখনই ভাঙান','Auto renewal: Off':'অটো রিনিউ: বন্ধ'});
+
+/* ===== v7: admin-set tenors (duration) for FD and DPS ===== */
+const nrm=o=>{const r={};if(Array.isArray(o))o.forEach((v,i)=>{if(v!=null)r[i]=+v});else Object.entries(o||{}).forEach(([k,v])=>{const m=+String(k).replace(/^m/,'');if(m>0&&v!=null)r[m]=+v});return r};
+svcfg=async()=>{const c=await db.get('savcfg',{}),f=nrm(c.fd),d=nrm(c.dps);return{fd:Object.keys(f).length?f:DEFR.fd,dps:Object.keys(d).length?d:DEFR.dps,minFd:c.minFd||1000,minDps:c.minDps||500,early:c.early==null?4:c.early}};
+const trow=(k,m,r)=>`<div class="row" data-k="${k}"><input class="f" type="number" min="1" max="120" inputmode="numeric" placeholder="Months" value="${m}"><input class="f" type="number" step="0.01" placeholder="Rate % p.a." value="${r}"><button class="btn d sm" data-x="1" aria-label="Remove">✕</button></div>`;
+const tRows=(k,map)=>Object.keys(map).map(Number).sort((a,b)=>a-b).map(m=>trow(k,m,map[m])).join('');
+$('asv').innerHTML='<p class="note" style="margin-bottom:4px">FD tenors (months and rate)</p><div id="atf"></div><button class="btn g sm" data-add="fd">+ Add FD tenor</button><p class="note" style="margin:14px 0 4px">DPS tenors (months and rate)</p><div id="atd"></div><button class="btn g sm" data-add="dps">+ Add DPS tenor</button>';
+$('asv').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.x)b.closest('.row').remove();else if(b.dataset.add)$(b.dataset.add==='fd'?'atf':'atd').insertAdjacentHTML('beforeend',trow(b.dataset.add,'',''))};
+loadAdminSav=async()=>{const c=await svcfg();$('atf').innerHTML=tRows('fd',c.fd);$('atd').innerHTML=tRows('dps',c.dps);$('sm_f').value=c.minFd;$('sm_d').value=c.minDps;$('sm_e').value=c.early};
+$('sv_s').onclick=async()=>{try{const c={fd:{},dps:{},minFd:parseFloat($('sm_f').value)||1000,minDps:parseFloat($('sm_d').value)||500,early:isNaN(parseFloat($('sm_e').value))?4:parseFloat($('sm_e').value)};
+ document.querySelectorAll('#asv .row').forEach(r=>{const[a,b]=r.querySelectorAll('input'),m=Number(a.value),v=parseFloat(b.value);if(a.value===''&&b.value==='')return;
+  if(!Number.isInteger(m)||m<1||m>120)throw new Error('Tenor must be whole months from 1 to 120');if(!(v>0&&v<=100))throw new Error('Rate must be above 0 and up to 100');const k='m'+m,t=c[r.dataset.k];if(t[k]!==undefined)throw new Error('Duplicate tenor: '+m+' months');t[k]=v});
+ if(!Object.keys(c.fd).length||!Object.keys(c.dps).length)throw new Error('Keep at least one FD tenor and one DPS tenor');
+ await db.set('savcfg',c);addLog('FD/DPS tenors and rates updated');err('Saved. New tenors and rates apply to new plans only',1)}catch(e){err(e.message)}};
+Object.assign(BN,{'+ Add FD tenor':'+ FD মেয়াদ যোগ করুন','+ Add DPS tenor':'+ DPS মেয়াদ যোগ করুন'});
+/* ===== Start ===== */
+applyLang();try{const ic=document.querySelector('link[rel=icon]').href,mf={name:'dbank',short_name:'dbank',start_url:location.href.split('#')[0],display:'standalone',background_color:'#050304',theme_color:'#050304',icons:[{src:ic,sizes:'any',type:'image/svg+xml'}]};
+ const l=document.createElement('link');l.rel='manifest';l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/manifest+json'}));document.head.appendChild(l)}catch{}
+ready.then(()=>{const me=localStorage.getItem('dp_session');if(sessionStorage.getItem('dp_admin'))admin();else if(me){if(localStorage.getItem('dp_pinon')===me&&sessionStorage.getItem('dp_unl')!=='1')openLock(me);else home()}});
+</script></body></html>
